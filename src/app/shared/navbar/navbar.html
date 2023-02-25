@@ -1,0 +1,22 @@
+<nav class="main-container">
+  <a (click)="gotoMain()">
+    <p class="nav-bar__padding">Ale Kino!</p>
+  </a>
+  <ul>
+    <li class="menu">
+      <button class="nav-button" (click)="showMenu()">Menu</button>
+
+      <ul class="dropdown-list">
+        <li class="nav-menu__list">
+          <button (click)="gotoMyTickets()">Moje bilety</button>
+        </li>
+        <li class="nav-menu__list">
+          <button (click)="goToWishList()">Chcę obejrzeć</button>
+        </li>
+        <li class="nav-menu__list">
+          <button (click)="logout()">Wyloguj</button>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,21 @@
+<app-loader></app-loader>
+<div class="main">
+  <div class="title" *ngIf="singleMovieProp$|async as movieProp; else error">
+    <p>TYTUŁ: {{movieProp.title}}</p>
+    <p>GODZINA: {{movieProp.hour}}</p>
+    <p>Numer sali: {{movieProp.hall}}</p>
+  </div>
+  <div class="screen">
+    <p>Ekran</p>
+    <div class="screen-screen"></div>
+  </div>
+</div>
+<div *ngIf="show$ |async as show;">
+  <app-display></app-display>
+</div>
+<app-tickets></app-tickets>
+<ng-template #error>
+  <div *ngIf="errorClientServer$ | async">
+    <app-error></app-error>
+  </div>
+</ng-template>

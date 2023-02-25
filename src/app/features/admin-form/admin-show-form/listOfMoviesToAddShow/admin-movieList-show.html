@@ -1,0 +1,14 @@
+<form class="form" [formGroup]="adminFormMovieList">
+  <mat-form-field appearance="fill">
+    <mat-label>Wybierz film</mat-label>
+    <mat-select (selectionChange)="onSelect()" formControlName="movie">
+      <mat-option *ngFor=" let movie of movies; index as index" [value]="movie.length"> {{movie.title}} </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+<div *ngIf="isOpenForm">
+  <app-admin-add-show-form
+    [movieId]="movieLength"
+    (emitHallId)="updateHallId($event)"
+    (emitDayId)="updateDayId($event)"></app-admin-add-show-form>
+</div>

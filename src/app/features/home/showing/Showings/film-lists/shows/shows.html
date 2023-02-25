@@ -1,0 +1,19 @@
+<div *ngIf="currentDay$|async as currentDay ">
+  <div class="list" *ngIf="showsList$ | async as showsList">
+    <div class="list" *ngIf="currenValue$| async as currentValue">
+      <div *ngFor="let shows of showsList;">
+        <div *ngIf="shows.movieId === id && shows.dateId===currentDay.id" class="hours-list">
+          <button
+            mat-fab
+            extended
+            [disabled]="(currentValue ==='locked')&& calendarService.ifTimeIsPassed(shows.hour)"
+            [routerLink]="[shows.id]"
+            class="hours"
+            (click)="chooseHour(shows.id, shows.hour, shows.screenId )">
+            {{shows.hour}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

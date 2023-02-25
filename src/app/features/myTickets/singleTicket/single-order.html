@@ -1,0 +1,31 @@
+<app-loader></app-loader>
+<div *ngIf="orders$ |async as orders; else error">
+  <h1>Moje zamówienie</h1>
+  <div>
+    <p>Dane zamawiającego:</p>
+    <p>Imię: {{orders[id-1].userFirstName}}</p>
+    <p>Nazwisko: {{orders[id-1].userLastName}}</p>
+    <p>Email: {{orders[id-1].userEmail}}</p>
+    <p *ngIf="orders[id-1].userPhoneNumber">Numer telefonu: {{orders[id-1].userPhoneNumber}}</p>
+  </div>
+  <div>
+    <p>Film:</p>
+    <p>Tytuł filmu: {{orders[id-1].movieTitle}}</p>
+    <p>Godzina: {{orders[id-1].hour}}</p>
+    <p>Numer Sali: {{orders[id-1].hall}}</p>
+  </div>
+  <div>
+    <p>Bilety:</p>
+    <div *ngFor=" let ticket of orders[id-1].ticket">
+      <div>
+        <p>Typ biletu: {{ticket.type}}, cena {{ticket.value}}</p>
+        <p>Rząd: {{seatsAlphabet[ticket.row]}} miejsce: {{ticket.colIndexPrintOnScreen}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #error>
+  <div *ngIf="errorClientServer$ | async">
+    <app-error></app-error>
+  </div>
+</ng-template>

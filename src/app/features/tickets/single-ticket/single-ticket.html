@@ -1,0 +1,6 @@
+<!-- <div *ngIf="choosenTickets$ | async as ticketList">{{ ticketList | json }}</div> -->
+<p class="seatName">{{ seatsAlphabet[seat.row] }}{{ seat.colIndexPrintOnScreen + 1 }}</p>
+<select #options [(ngModel)]="selectedTicket" (change)="onSelected(seat.col, seat.row, seat.colIndexPrintOnScreen + 1)">
+  <option *ngFor="let ticketType of show.priceList">{{ ticketType.type }}, {{ ticketType.price }}zł</option>
+</select>
+<button class="delete" (click)="delete(seat.col, seat.row, seat.colIndexPrintOnScreen + 1)">x</button>

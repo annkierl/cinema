@@ -1,0 +1,91 @@
+@import '../../../styles.scss';
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-basic-green;
+  padding: 12px;
+  height: fit-content;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  font-family: monospace;
+}
+
+ul {
+  background: $color-button-background;
+  list-style: none;
+  margin: 0px 50px;
+  padding-left: 0;
+}
+
+li {
+  color: #fff;
+  font-weight: 500;
+  background: $color-button-background;
+  display: block;
+  float: left;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  transition-duration: 0.5s;
+  width: 100px;
+}
+
+li a {
+  color: #fff;
+}
+
+ul li ul {
+  background: $color-button-background;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+
+  left: -50px;
+  display: none;
+}
+
+ul li:hover > ul,
+ul li:focus-within > ul,
+ul li ul:hover,
+ul li ul:focus {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+ul li ul li {
+  clear: both;
+}
+button {
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  background: $color-button-background;
+}
+button:hover {
+  background: $color-button-background-hover;
+}
+.dropdown-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-menu__list:hover {
+  border-bottom: white;
+}
+.nav-menu__list:hover {
+  background: $color-button-background-hover;
+}
+
+.menu:hover > button {
+  background: $color-button-background-hover;
+}

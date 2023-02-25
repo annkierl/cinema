@@ -1,0 +1,5 @@
+<app-loader></app-loader>
+<p>Zakup zakończył się powodzeniem!</p>
+<div *ngIf="orders$ |async as orders">
+  <div [routerLink]="['/myTickets', orders.length]">Przejdź do: Mój bilet</div>
+</div>

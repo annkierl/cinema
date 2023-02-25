@@ -1,0 +1,9 @@
+<div *ngIf="seat$ | async as  seat">
+  <button
+    [ngClass]="{'choosen' : toggle, 'free': !toggle}"
+    (click)="chooseSeat(coordinates.rowIndex,coordinates.colIndex, coordinates.seat, seat)"
+    class="seat-button"
+    [disabled]="coordinates.disabled">
+    {{coordinates.colIndex+1}}
+  </button>
+</div>

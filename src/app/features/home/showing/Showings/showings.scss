@@ -1,0 +1,27 @@
+.calendar {
+  display: flex;
+  gap: 5%;
+  flex-direction: column;
+  background-color: #e8f0db;
+  justify-content: center;
+  padding: 10px;
+}
+.days_list {
+  display: flex;
+  justify-content: space-around;
+}
+.days {
+  background-color: #b5dab0;
+  padding: 12px 12px;
+  border: none;
+  border-radius: 20px;
+}
+.days:hover {
+  background-color: #99c294;
+  cursor: pointer;
+}
+
+.film__list {
+  display: flex;
+  flex-direction: column;
+}

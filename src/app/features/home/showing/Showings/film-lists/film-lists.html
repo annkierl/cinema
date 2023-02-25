@@ -1,0 +1,10 @@
+<div *ngIf="showings |async as films; else loading">
+  <div *ngIf="scores$| async as scores">
+    <div *ngIf="currentDay$| async as currentDay">
+      <article *ngFor="let film of films">
+        <app-single-movie [currentDay]="currentDay" [singleMovie]="film" [scores]="scores"></app-single-movie>
+      </article>
+    </div>
+  </div>
+</div>
+<ng-template #loading> loading</ng-template>

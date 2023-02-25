@@ -1,0 +1,32 @@
+<div class="main-container">
+  <div class="header">
+    <h1 class="$heading-1">ALE KINO!</h1>
+  </div>
+  <form class="form" [formGroup]="loginForm">
+    <div class="form__input">
+      E-mail
+      <input error formControlName="email" />
+
+      Hasło
+      <input error type="password" formControlName="password" />
+    </div>
+    <div class="errors">
+      <ng-container *ngIf="loginForm.controls.email.errors as errors">
+        <p class="form__warning" *ngIf="errors['maxlength']">Email nie może być dłuższy niż 100 znaków.</p>
+        <p class="form__warning" *ngIf="errors['pattern']">Podaj poprawny adres email według wzoru: nazwa@domena.pl</p>
+      </ng-container>
+      <p
+        class="form__warning"
+        *ngIf="(passwordCtrl.errors?.['required'] &&
+         passwordCtrl.touched) ||
+        (emailCtrl.errors?.['required'] &&
+         emailCtrl.touched)
+      ">
+        Pola nie mogą byc puste.
+      </p>
+    </div>
+    <div class="form_submit">
+      <button class="form_submit-button" (click)="checkValidationAndAuth()">Zaloguj</button>
+    </div>
+  </form>
+</div>

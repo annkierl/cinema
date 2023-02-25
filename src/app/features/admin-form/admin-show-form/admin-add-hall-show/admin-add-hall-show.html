@@ -1,0 +1,13 @@
+<form class="form" [formGroup]="adminFormHall">
+  <mat-form-field appearance="fill">
+    <mat-label>Wybierz sale</mat-label>
+    <mat-select (selectionChange)="onSelect()" formControlName="hall">
+      <mat-option [value]="1"> Sala numer 1 </mat-option>
+      <mat-option [value]="2"> Sala numer 2 </mat-option>
+      <mat-option [value]="3"> Sala numer 3 </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+<div *ngIf="isOpenForm">
+  <app-admin-addhHour [movieId]="movieId" [dayId]="dayId" [hallId]="hallId"></app-admin-addhHour>
+</div>

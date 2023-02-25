@@ -1,0 +1,21 @@
+.seat-button {
+  margin: 5px 5px;
+  border: none;
+  padding: 10px 15px;
+  min-width: 45px;
+}
+
+.seat-button:disabled {
+  background-color: #60795d;
+}
+.choosen {
+  background-color: #94e98b;
+}
+.free {
+  background-color: #b5dab0;
+}
+.choosen,
+.seat-button:hover {
+  background-color: #94e98b;
+  cursor: pointer;
+}

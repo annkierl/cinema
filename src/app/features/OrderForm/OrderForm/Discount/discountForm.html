@@ -1,0 +1,8 @@
+<form class="coupon-form" [formGroup]="couponForm" (ngSubmit)="handleSubmit()">
+  <p>Kod zniżkowy</p>
+  <input appNoSpaces formControlName="coupon" />
+  <ng-container *ngIf="couponCtrl.statusChanges | async as status">
+    <p *ngIf="couponCtrl.errors as errors">Kupon jest nieprawidłowy</p>
+  </ng-container>
+  <button mat-flat-button color="primary" [disabled]="!couponForm.valid">Zatwierdź</button>
+</form>

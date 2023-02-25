@@ -1,0 +1,25 @@
+<app-loader></app-loader>
+<div *ngIf=" totalCost$ |async as total; else error">
+  <div *ngIf=" choosenTickets$|async as choosenTickets">
+    <div *ngIf="movieDetails$|async as movieDetails">
+      <div *ngIf=" userData$|async as  userData">
+        <div *ngIf=" discounts$|async as discounts">
+          <div *ngIf=" canPay$|async as canPay">
+            <app-form
+              [totalCost]="total"
+              [movieDetails]=" movieDetails"
+              [userData]="userData"
+              [discounts]="discounts"
+              [choosenTickets]="choosenTickets"
+              [canPay]="canPay"></app-form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #error>
+  <div *ngIf="errorClientServer$ | async">
+    <app-error></app-error>
+  </div>
+</ng-template>

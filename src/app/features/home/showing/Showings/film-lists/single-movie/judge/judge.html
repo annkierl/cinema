@@ -1,0 +1,18 @@
+<div *ngIf="movieId$ |async as movieId">
+  <div *ngIf="wasJudged$ |async as wasJudged; ">
+    <div *ngIf="!wasJudged.boolean else info">
+      <div class="dialog">
+        <div class="button" *ngFor="let mark of markTable">
+          <button class="single-button" (click)="chooseMark(mark, movieId.movieId)">{{mark}}</button>
+        </div>
+      </div>
+      <div class="action-buttons">
+        <button class="cancel" (click)="closeDialog()">Anuluj</button>
+      </div>
+    </div>
+    <ng-template #info>
+      <div class="judged">Film został już oceniony</div>
+      <button class="ok" (click)="closeDialog()">Ok!</button>
+    </ng-template>
+  </div>
+</div>

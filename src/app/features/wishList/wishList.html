@@ -1,0 +1,13 @@
+<app-loader></app-loader>
+<div *ngIf=" wishList$ |async as wishList; else error">
+  <ul>
+    <li *ngFor="let list of wishList">
+      {{list.movieTitle}} <button (click)="remove( list.movieId)">usuń z listy</button>
+    </li>
+  </ul>
+</div>
+<ng-template #error>
+  <div *ngIf="errorClientServer$ | async">
+    <app-error></app-error>
+  </div>
+</ng-template>

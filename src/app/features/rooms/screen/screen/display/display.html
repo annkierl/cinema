@@ -1,0 +1,10 @@
+<div class="main-container">
+  <div class="row" *ngFor="let alphabet of show2$ | async | keyvalue; index as r">
+    <div class="alphabet">{{ alphabet.key }}</div>
+    <app-sinlge-seat
+      class="col"
+      *ngFor="let seat of alphabet.value | keyvalue; index as col"
+      [coordinates]="{rowIndex:r, colIndex:col, disabled:seat.value.disabled, seat:seat.key}">
+    </app-sinlge-seat>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div *ngIf="isTicketChoosen$| async as isTicketChoosen">
+  <div *ngIf="totalCost$|async as total">
+    <div class="container" *ngIf="ticket$ | async as ticket">
+      <div *ngIf="show$ |async as show">
+        <div class="container-center" *ngIf="seat$ |async as seat">
+          <ol>
+            <div class="listOfTickets" *ngFor="let seat of seat">
+              <li class="row">
+                <app-single-ticket [seat]="seat" [show]="show"></app-single-ticket>
+              </li>
+            </div>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="decided">
+      <p>Do zapłaty: {{total.total}} zł</p>
+      <button [disabled]="isTicketChoosen.isTicket" class="goToForm" (click)="goToPayment()">
+        Przejdź do płatności
+      </button>
+      <div *ngIf="max10TicketsWarning$ | async as max10tickets">
+        <p *ngIf="max10tickets.tooMany">Uwaga mozna wybrać max 10 biletów!</p>
+      </div>
+    </div>
+  </div>
+</div>

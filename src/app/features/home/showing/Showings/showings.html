@@ -1,0 +1,15 @@
+<div class="calendar" *ngIf=" calendarService.calendar$ |async as calendar; else error">
+  <ng-container *ngIf="calendar.length>0">
+    <div class="days_list">
+      <div *ngFor="let date of calendarService.date; let i=index">
+        <button class="days" (click)="ShowRepertoir(calendar[i].id)">{{date|date:'shortDate'}}</button>
+      </div>
+    </div>
+    <app-filmlists> </app-filmlists>
+  </ng-container>
+</div>
+<ng-template #error>
+  <div *ngIf="errorClientServer$ | async">
+    <app-error></app-error>
+  </div>
+</ng-template>

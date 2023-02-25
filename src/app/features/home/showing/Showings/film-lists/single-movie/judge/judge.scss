@@ -1,0 +1,66 @@
+.dialog {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px;
+  gap: 1px;
+}
+.button {
+  background-color: #b5dab0;
+  padding: 10px 7px;
+  border: black, solid;
+  border-radius: 20px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.button:hover {
+  background-color: #99c294;
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  background-color: #b5dab0;
+}
+button:hover {
+  background-color: #99c294;
+  cursor: pointer;
+}
+.single-button {
+  width: 10px;
+}
+
+.send {
+  display: flex;
+  margin: 30px;
+  border-radius: 20px;
+  padding: 10px 10px;
+}
+
+.cancel {
+  display: flex;
+  margin: 30px;
+  border-radius: 20px;
+  padding: 10px 10px;
+}
+
+.judged {
+  background-color: #99c294;
+  padding: 50px 77px;
+  display: flex;
+  margin: 100px 77px;
+  justify-content: center;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.ok {
+  display: flex;
+  margin: 30px 130px;
+  border-radius: 20px;
+  padding: 10px 10px;
+}
