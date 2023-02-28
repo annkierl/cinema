@@ -1,11 +1,15 @@
 import { inject, Injectable } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { AdminMovieListForm } from './admin-movieList-show.interface';
+import { AdminValidator } from '../admin-add-hour-show/admin-add-hour-show.validator';
+import { AdminAddScreening, AdminMovieListForm } from './admin-movieList-show.interface';
 
 @Injectable()
 export class AdminMovieListService {
   private builder = inject(NonNullableFormBuilder);
+  private adminValidator = inject(AdminValidator);
   private adminMovieListForm = this.createForm();
+  private adminAddSreeningForm = this.createFormForScreening();
+
   private createForm() {
     return this.builder.group<AdminMovieListForm>({
       adminMovieList: this.builder.group({
@@ -15,7 +19,31 @@ export class AdminMovieListService {
       }),
     });
   }
+
+  private createFormForScreening(): AdminAddScreening {
+    return this.builder.group({
+      movie: this.builder.control('', {
+        validators: [Validators.required],
+      }),
+      day: this.builder.control('', {
+        validators: [Validators.required],
+      }),
+      hall: this.builder.control('', {
+        validators: [Validators.required],
+      }),
+      hour: this.builder.control('', {
+        validators: [Validators.required],
+        asyncValidators: [this.adminValidator.validate.bind(this.adminValidator)],
+        updateOn: 'blur',
+      }),
+    });
+  }
+
   getForm(): FormGroup<AdminMovieListForm> {
     return this.adminMovieListForm;
+  }
+
+  getFormAdmin() {
+    return this.adminAddSreeningForm;
   }
 }

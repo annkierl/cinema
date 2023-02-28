@@ -5,7 +5,7 @@ import { API_URL } from '@core/env.token';
 import { Store } from '@ngrx/store';
 import { tap } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { AppState } from '../home/home.module';
+import { AppState } from 'src/app/app.module';
 import { LoginData } from './auth.interface';
 import { userActions } from './store/user.action';
 import { TokenService } from './token/token.service';
@@ -40,10 +40,9 @@ export class AuthService {
           next: res => {
             const { accessToken, user } = res;
             this.auth$$.next({ hasAuth: true });
-
             this.tokenService.saveToken(accessToken, user.role);
             this.store.dispatch(userActions.changeRole({ role: user.role, id: user.id }));
-            console.log(user.role);
+            console.log('Authservice');
             if (user.role === 'user') {
               this.router.navigate(['/shows/0']);
             } else {

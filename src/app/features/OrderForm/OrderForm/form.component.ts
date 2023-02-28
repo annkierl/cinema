@@ -15,6 +15,9 @@ import { FormPaymentService } from './formPayment.service';
 import { OrderService } from './Order/order.service';
 import { Order } from './Order/order.interface';
 import { NumberDirective } from '@shared/directives/onlyNumber.directive';
+import { NoSpaceDirective } from '@shared/no-space.directive';
+import { TicketsService } from '../../tickets/tickets.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-form',
@@ -25,6 +28,7 @@ import { NumberDirective } from '@shared/directives/onlyNumber.directive';
     ReactiveFormsModule,
     DiscountFormComponent,
     PaymentFormComponent,
+    NoSpaceDirective,
   ],
   standalone: true,
   templateUrl: './form.html',
@@ -32,7 +36,7 @@ import { NumberDirective } from '@shared/directives/onlyNumber.directive';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormComponent {
-  @Input() totalCost!: { total: number };
+  @Input() totalCost!: { discount: number };
   @Input() movieDetails!: singleMovieProp;
   @Input() userData!: User;
   @Input() choosenTickets!: Ticket[];
@@ -40,9 +44,10 @@ export class FormComponent {
   @Input() canPay!: { canPay: boolean };
 
   private builder = inject(NonNullableFormBuilder);
-  dicountService = inject(DiscountService);
-  formPaymentService = inject(FormPaymentService);
-  orderService = inject(OrderService);
+  private dicountService = inject(DiscountService);
+  private formPaymentService = inject(FormPaymentService);
+  private orderService = inject(OrderService);
+  private ticketService = inject(TicketsService);
 
   seatsAlphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];
   orderForm = this.createGroup();
@@ -105,6 +110,16 @@ export class FormComponent {
     this.orderService.addOrder(orderData);
     this.formPaymentService.goToPayment();
   }
+
+  choosentickets$1 = this.ticketService.choosenTickets$.pipe(
+    map(value => {
+      let sum = 0;
+      value.forEach(element => {
+        sum = sum + element.value;
+      });
+      return sum;
+    })
+  );
 
   ngOnDestroy() {
     this.formPaymentService.blockPayment();

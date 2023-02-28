@@ -78,7 +78,10 @@ export class TicketsService {
   }
 
   addTicket(ticket: Ticket) {
-    this.choosenTickets$$.next([...this.choosenTickets$$.value, ticket]);
+    let filtrated = this.choosenTickets$$.value.filter(
+      element => element.column !== ticket.column || element.row !== ticket.row
+    );
+    this.choosenTickets$$.next([...filtrated, ticket]);
   }
 
   addSeat(seat: Seat) {

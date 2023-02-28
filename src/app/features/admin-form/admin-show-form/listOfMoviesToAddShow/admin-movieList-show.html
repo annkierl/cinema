@@ -1,14 +1,45 @@
-<form class="form" [formGroup]="adminFormMovieList">
+<form class="form" [formGroup]="adminAddScreeningForm">
   <mat-form-field appearance="fill">
     <mat-label>Wybierz film</mat-label>
-    <mat-select (selectionChange)="onSelect()" formControlName="movie">
-      <mat-option *ngFor=" let movie of movies; index as index" [value]="movie.length"> {{movie.title}} </mat-option>
+    <mat-select formControlName="movie">
+      <mat-option *ngFor=" let movie of movies; index as index" [value]="{movieLen: movie.length, movieId:movie.id}">
+        {{movie.title}}
+      </mat-option>
     </mat-select>
+    <mat-error *ngIf="movieScreeningCtrl.errors as errors">
+      <ng-container *ngIf="errors['required'] "> To pole jest wymagane</ng-container>
+    </mat-error>
   </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Wybierz dzień</mat-label>
+    <mat-select formControlName="day">
+      <mat-option *ngFor=" let date of date; index as index" [value]="index"> {{date|date}} {{index}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="dayScreeningCtrl.errors as errors">
+      <ng-container *ngIf="errors['required'] "> To pole jest wymagane</ng-container>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Wybierz sale</mat-label>
+    <mat-select (selectionChange)="onSelectHall()" formControlName="hall">
+      <mat-option [value]="1"> Sala numer 1 </mat-option>
+      <mat-option [value]="2"> Sala numer 2 </mat-option>
+      <mat-option [value]="3"> Sala numer 3 </mat-option>
+    </mat-select>
+    <mat-error *ngIf="hallScreeningCtrl.errors as errors">
+      <ng-container *ngIf="errors['required'] "> To pole jest wymagane</ng-container>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Godzina seansu </mat-label>
+    <input formControlName="hour" matInput type="time" />
+    <mat-error *ngIf="hourScreeningCtrl.errors as errors">
+      <ng-container *ngIf="errors['required'] "> To pole jest wymagane</ng-container>
+    </mat-error>
+    <!-- {{adminAddScreeningForm.controls.hour.errors | json}} {{adminAddScreeningForm.controls.hour.status}} -->
+  </mat-form-field>
+
+  <button class="button" (click)="onCheckAvaible()">Dodaj</button>
 </form>
-<div *ngIf="isOpenForm">
-  <app-admin-add-show-form
-    [movieId]="movieLength"
-    (emitHallId)="updateHallId($event)"
-    (emitDayId)="updateDayId($event)"></app-admin-add-show-form>
-</div>

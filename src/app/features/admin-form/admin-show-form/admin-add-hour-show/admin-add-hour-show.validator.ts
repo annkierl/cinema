@@ -1,11 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { AbstractControl, AsyncValidator, FormControl, ValidationErrors } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { catchError, debounceTime, delay, EMPTY, first, map, Observable, of, switchMap, tap } from 'rxjs';
+import { catchError, debounceTime, EMPTY, first, map, Observable, of, switchMap, tap } from 'rxjs';
 import { AdminFilmHelperService } from 'src/app/features/adminPanel/admin-film.helper.service';
 import { RepertoirState } from 'src/app/features/adminPanel/admin.component';
-import { AdminFormHallService } from '../admin-add-hall-show/adminFormHall.service';
-import { AdminAddHourForm, adminHour, AdminHourTypeForm } from './admin-add-hour-show.interface';
+import { adminHour } from './admin-add-hour-show.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +14,7 @@ export class AdminValidator implements AsyncValidator {
   private adminHelperService = inject(AdminFilmHelperService);
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
     const form = control as adminHour;
-
+    console.log('hej');
     return of(EMPTY).pipe(
       debounceTime(1000),
       switchMap(() => {

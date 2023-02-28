@@ -43,6 +43,10 @@ export class ShowingsService {
   get filmList$() {
     return this.filmsList$$.asObservable();
   }
+
+  postFilms(movieId: number, dayId: number) {
+    this.http.post(`http://localhost:3000/films`, { id: 14, movieId: movieId, dateId: dayId }).subscribe();
+  }
   checkFilmsForAnotherDays(id: string) {
     this.http
       .get<Film[]>(`http://localhost:3000/films?dateId=${id}&_expand=movie`)

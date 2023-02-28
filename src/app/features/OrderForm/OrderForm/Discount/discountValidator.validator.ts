@@ -2,12 +2,13 @@ import { inject, Injectable } from '@angular/core';
 import { AbstractControl, AsyncValidator, ValidationErrors } from '@angular/forms';
 import { catchError, debounceTime, delay, EMPTY, map, Observable, of, switchMap, tap } from 'rxjs';
 import { DiscountService } from './discount.service';
+import { DiscountValidatorService } from './discountValidator.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CouponValidator implements AsyncValidator {
-  private discountService = inject(DiscountService);
+  private discountService = inject(DiscountValidatorService);
 
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
     return of(EMPTY).pipe(

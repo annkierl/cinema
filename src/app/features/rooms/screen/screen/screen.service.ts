@@ -41,7 +41,25 @@ export class ScreenService {
       .subscribe(show => this.singleShow$$.next(show));
   }
 
+  reserveSeat(showId: number, reservedSeats: number[][], seatToReservation: number[][]) {
+    return this.http
+      .patch(`http://localhost:3000/show/${showId}`, {
+        reservedSeats: [...reservedSeats, ...seatToReservation],
+      })
+      .subscribe(value => this.getShow(showId));
+  }
   getFilmProp(singleMovieProp: singleMovieProp) {
     this.singleMovieProp$$.next(singleMovieProp);
+  }
+
+  removeSeat(reservedSeats: number[][], showId: number, removingSeat: number[]) {
+    let filtrated = reservedSeats.filter(value => {
+      return value[0] !== removingSeat[0] || value[1] !== removingSeat[1];
+    });
+    return this.http
+      .patch(`http://localhost:3000/show/${showId}`, {
+        reservedSeats: [...filtrated],
+      })
+      .subscribe(value => this.getShow(showId));
   }
 }

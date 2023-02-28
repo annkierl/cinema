@@ -12,8 +12,9 @@
 </div>
 <div *ngIf="show$ |async as show;">
   <app-display></app-display>
+  <app-tickets [reservedSeats]="show.reservedSeats"></app-tickets>
 </div>
-<app-tickets></app-tickets>
+
 <ng-template #error>
   <div *ngIf="errorClientServer$ | async">
     <app-error></app-error>

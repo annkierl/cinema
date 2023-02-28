@@ -9,3 +9,12 @@ export const initialUserState: UserState = {
   phone: 0,
   email: '',
 };
+export const InitialStateStore: UserStateForStore = {
+  role: '',
+  id: NaN,
+};
+
+export interface UserStateForStore {
+  role: string;
+  id: number;
+}

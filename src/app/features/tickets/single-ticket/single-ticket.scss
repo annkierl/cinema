@@ -1,0 +1,16 @@
+.tickets {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.delete {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #99c294;
+  color: white;
+}
+.delete:hover {
+  background-color: #87a982;
+}

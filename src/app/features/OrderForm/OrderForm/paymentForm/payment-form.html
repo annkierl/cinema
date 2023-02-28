@@ -1,4 +1,9 @@
 <form class="payment-form" [formGroup]="paymentForm" (submit)="handleSubmit()">
-  <input [class.error]="blikCtrl.errors" class="input" placeholder="kod blik" formControlName="blikNumber" />
+  <input
+    appNoSpaces
+    [class.error]="blikCtrl.errors"
+    class="input"
+    placeholder="kod blik"
+    formControlName="blikNumber" />
   <button [disabled]="blikCtrl.invalid">Zapłać!</button>
 </form>

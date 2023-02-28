@@ -6,7 +6,7 @@
           <ol>
             <div class="listOfTickets" *ngFor="let seat of seat">
               <li class="row">
-                <app-single-ticket [seat]="seat" [show]="show"></app-single-ticket>
+                <app-single-ticket [reservedSeats]="reservedSeats" [seat]="seat" [show]="show"></app-single-ticket>
               </li>
             </div>
           </ol>
@@ -14,7 +14,9 @@
       </div>
     </div>
     <div class="decided">
-      <p>Do zapłaty: {{total.total}} zł</p>
+      <div *ngIf="choosentickets$1| async as sum">
+        <p>Do zapłaty: {{sum-total.discount}} zł</p>
+      </div>
       <button [disabled]="isTicketChoosen.isTicket" class="goToForm" (click)="goToPayment()">
         Przejdź do płatności
       </button>

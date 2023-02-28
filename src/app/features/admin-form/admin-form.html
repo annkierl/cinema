@@ -1,30 +1,28 @@
-<!-- {{numberOfFilms.length + 1}} -->
 <form class="form" [formGroup]="adminForm">
   <mat-form-field appearance="fill">
     <mat-label>Tytuł</mat-label>
     <input matInput formControlName="title" />
-
     <mat-error *ngIf="titleCtrl.errors as errors">
       <ng-container *ngIf="errors['required'] "> To pole jest wymagane</ng-container>
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>link do plakatu </mat-label>
-    <input matInput formControlName="linkToPoster" />
+    <input appNoSpaces matInput formControlName="linkToPoster" />
     <mat-error *ngIf="linkToPosterCtrl.errors as errors">
       <ng-container *ngIf="errors['required'] "> To pole jest wymagane</ng-container>
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Czas trwania [minuty] </mat-label>
-    <input matInput formControlName="time" />
+    <input appNoSpaces matInput formControlName="time" />
     <mat-error *ngIf="timeCtrl.errors as errors">
       <ng-container *ngIf="errors['required'] "> To pole jest wymagane</ng-container>
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>kategoria wiekowa </mat-label>
-    <input matInput formControlName="cathegory" />
+    <mat-label>kategoria </mat-label>
+    <input appNoSpaces matInput formControlName="cathegory" />
     <mat-error *ngIf="cathegoryCtrl.errors as errors">
       <ng-container *ngIf="errors['required'] "> To pole jest wymagane</ng-container>
     </mat-error>
@@ -43,5 +41,5 @@
       <ng-container *ngIf="errors['required'] "> To pole jest wymagane</ng-container>
     </mat-error>
   </mat-form-field>
-  <button (click)="addMovie()">Dodaj Film</button>
+  <button class="button" (click)="addMovie()">Dodaj Film</button>
 </form>

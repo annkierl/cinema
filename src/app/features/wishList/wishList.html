@@ -1,8 +1,9 @@
 <app-loader></app-loader>
-<div *ngIf=" wishList$ |async as wishList; else error">
-  <ul>
-    <li *ngFor="let list of wishList">
-      {{list.movieTitle}} <button (click)="remove( list.movieId)">usuń z listy</button>
+<div class="wishlist" *ngIf=" wishList$ |async as wishList; else error">
+  <ul class="list">
+    <li class="singleelement" *ngFor="let list of wishList">
+      <div>{{list.movieTitle}}</div>
+      <button class="button" (click)="remove( list.movieId)">usuń z listy</button>
     </li>
   </ul>
 </div>

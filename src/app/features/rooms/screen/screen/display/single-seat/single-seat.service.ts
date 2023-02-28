@@ -3,6 +3,6 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class DisplayScreenService {
+export class SingleSeatService {
   constructor() {}
 }

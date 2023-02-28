@@ -18,7 +18,6 @@ export class FilmListsComponent {
   private calendarService = inject(CalendarService);
 
   currentDay$ = this.calendarService.currentDay$;
-  // private route = inject(ActivatedRoute);
   showings = this.showingService.filmList$;
   scores$ = this.showingService.score$;
   shows$ = this.showsService.shows$;

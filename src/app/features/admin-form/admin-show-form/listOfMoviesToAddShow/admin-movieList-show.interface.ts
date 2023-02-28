@@ -6,3 +6,10 @@ export interface AdminMovieListForm {
 export interface AdminMovieListTypeForm {
   movie: FormControl<string>;
 }
+
+export type AdminAddScreening = FormGroup<{
+  movie: FormControl<string>;
+  day: FormControl<string>;
+  hall: FormControl<string>;
+  hour: FormControl<string>;
+}>;

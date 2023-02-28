@@ -1,12 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
 import { userActions } from './user.action';
-import { initialUserState } from './user.state';
-
+import { InitialStateStore, initialUserState } from './user.state';
+let x = localStorage.getItem('role');
 export const userReducer = createReducer(
-  initialUserState,
-  on(userActions.changeRole, (state, { type, id }) => ({
+  { id: NaN, role: x },
+  on(userActions.changeRole, (state, { role, id }) => ({
     ...state,
-    role: type,
+    role: role,
     id: id,
   }))
 );

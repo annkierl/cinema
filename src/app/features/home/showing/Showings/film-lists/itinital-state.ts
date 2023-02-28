@@ -41,4 +41,5 @@ export const initialShows: Shows = {
 export const initialSingleMovieProp: singleMovieProp = {
   title: '',
   hour: '',
+  showId: 0,
 };

@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { map } from 'rxjs';
 import { ScreenService } from '../screen.service';
-import { DisplayScreenService } from './display-screen.service';
 import { SinlgeSeatComponent } from './single-seat/sinlge-seat.component';
 
 @Component({
@@ -15,6 +14,7 @@ import { SinlgeSeatComponent } from './single-seat/sinlge-seat.component';
 })
 export class DisplayComponent {
   private screenService = inject(ScreenService);
+  show$ = this.screenService.show$;
 
   toggle = false;
   seatsAlphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];

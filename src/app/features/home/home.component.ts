@@ -2,11 +2,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  template: `
+  template: `<div class="main">
     <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
-  `,
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer class="footer"></app-footer>
+  </div> `,
   styleUrls: ['./home.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

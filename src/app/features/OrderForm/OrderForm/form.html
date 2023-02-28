@@ -1,68 +1,77 @@
-<form class="form" [formGroup]="orderForm">
-  <div class="form__inputs">
-    <p>Film: {{movieDetails.title}}</p>
-    <p>Sala numer: {{movieDetails.hall}}</p>
-    <p>Godzina: {{movieDetails.hour}}</p>
-    <p>Suma do zapłaty: {{totalCost.total}}zł</p>
-    <p>Twoje bilety:</p>
-    <ol>
-      <li *ngFor="let choosenTicket of choosenTickets">
-        <p>
-          Typ: {{choosenTicket.type}}, cena: {{choosenTicket.value}}zł, miejsce:
-          {{seatsAlphabet[choosenTicket.row]}}{{choosenTicket.colIndexPrintOnScreen}}
-        </p>
-      </li>
-    </ol>
-    <p>Imie</p>
-    <input
-      [(ngModel)]="userData.firstName"
-      [class.error]="firstNameCtrl.errors"
-      formControlName="firstName"
-      placeholder="*Imię" />
-    <ng-container *ngIf="firstNameCtrl.errors as errors">
-      <p *ngIf=" firstNameCtrl.touched && errors['required']">* Pole obowiązkowe</p>
-    </ng-container>
-    <p>Nazwisko</p>
+<div *ngIf="choosentickets$1 |async as sum">
+  <form class="form" [formGroup]="orderForm">
+    <div class="form__inputs">
+      <p>Film: {{movieDetails.title}}</p>
+      <p>Sala numer: {{movieDetails.hall}}</p>
+      <p>Godzina: {{movieDetails.hour}}</p>
+      <p>Suma do zapłaty: {{sum- totalCost.discount}}zł</p>
+      <p>Twoje bilety:</p>
+      <ol>
+        <li *ngFor="let choosenTicket of choosenTickets">
+          <p>
+            Typ: {{choosenTicket.type}}, cena: {{choosenTicket.value}}zł, miejsce:
+            {{seatsAlphabet[choosenTicket.row]}}{{choosenTicket.colIndexPrintOnScreen}}
+          </p>
+        </li>
+      </ol>
+      <p>Imie</p>
+      <input
+        appNoSpaces
+        [(ngModel)]="userData.firstName"
+        [class.error]="firstNameCtrl.errors"
+        formControlName="firstName"
+        placeholder="*Imię" />
+      <ng-container *ngIf="firstNameCtrl.errors as errors">
+        <p *ngIf=" firstNameCtrl.touched && errors['required']">* Pole obowiązkowe</p>
+      </ng-container>
+      <p>Nazwisko</p>
 
-    <input
-      [class.error]="lastNameCtrl.errors"
-      formControlName="lastName"
-      [(ngModel)]="userData.lastName"
-      placeholder="*Nazwisko" />
-    <ng-container *ngIf="lastNameCtrl.errors as errors">
-      <p *ngIf=" lastNameCtrl.touched && errors['required']">* Pole obowiązkowe</p>
-    </ng-container>
-    <p>Numer telefonu</p>
-    <input type="text" numbersOnly formControlName="phoneNumber" placeholder="Numer telefonu" />
-    <p>Email</p>
-    <input [class.error]="emailCtrl.errors" [(ngModel)]="userData.email" formControlName="email" placeholder="*email" />
+      <input
+        appNoSpaces
+        [class.error]="lastNameCtrl.errors"
+        formControlName="lastName"
+        [(ngModel)]="userData.lastName"
+        placeholder="*Nazwisko" />
+      <ng-container appNoSpaces *ngIf="lastNameCtrl.errors as errors">
+        <p *ngIf=" lastNameCtrl.touched && errors['required']">* Pole obowiązkowe</p>
+      </ng-container>
+      <p>Numer telefonu</p>
+      <input appNoSpaces type="text" numbersOnly formControlName="phoneNumber" placeholder="Numer telefonu" />
+      <p>Email</p>
+      <input
+        appNoSpaces
+        [class.error]="emailCtrl.errors"
+        [(ngModel)]="userData.email"
+        formControlName="email"
+        placeholder="*email" />
 
-    <ng-container *ngIf="emailCtrl.errors as errors">
-      <p *ngIf=" emailCtrl.touched && errors['pattern']">* Zły format maila</p>
-      <p *ngIf=" emailCtrl.touched && errors['required']">* Pole obowiązkowe</p>
-    </ng-container>
-    <p>Powtórz email</p>
-    <input
-      [class.error]="repeatEmailCtrl.errors"
-      [(ngModel)]="userData.email"
-      error
-      formControlName="repeatEmail"
-      placeholder="*powtórz email" />
-    <ng-container *ngIf="repeatEmailCtrl.errors as errors">
-      <p *ngIf=" repeatEmailCtrl.touched && errors['required']">* Pole obowiązkowe</p>
-    </ng-container>
+      <ng-container *ngIf="emailCtrl.errors as errors">
+        <p *ngIf=" emailCtrl.touched && errors['pattern']">* Zły format maila</p>
+        <p *ngIf=" emailCtrl.touched && errors['required']">* Pole obowiązkowe</p>
+      </ng-container>
+      <p>Powtórz email</p>
+      <input
+        appNoSpaces
+        [class.error]="repeatEmailCtrl.errors"
+        error
+        formControlName="repeatEmail"
+        placeholder="*powtórz email" />
+      <ng-container *ngIf="repeatEmailCtrl.errors as errors">
+        <p *ngIf=" repeatEmailCtrl.touched && errors['required']">* Pole obowiązkowe</p>
+      </ng-container>
 
-    <ng-container *ngIf="orderForm.errors as errors">
-      <p *ngIf="errors">E-mail'e są różne!</p>
-    </ng-container>
-    <app-discount-form [discounts]="discounts"></app-discount-form>
-  </div>
-  <button
-    (click)=" orderTickets(movieDetails.title,movieDetails.hall!,  movieDetails.hour!, totalCost.total)"
-    type="button">
-    Idź do płatności!
-  </button>
-  <div *ngIf="canPay.canPay">
-    <app-payment-form></app-payment-form>
-  </div>
-</form>
+      <ng-container *ngIf="orderForm.errors as errors">
+        <p *ngIf="errors">E-mail'e są różne!</p>
+      </ng-container>
+      <app-discount-form [discounts]="discounts"></app-discount-form>
+    </div>
+    <button
+      (click)=" orderTickets(movieDetails.title,movieDetails.hall!,  movieDetails.hour!, sum- totalCost.discount)"
+      type="button">
+      Idź do płatności!
+    </button>
+    <div *ngIf="canPay.canPay">
+      <app-payment-form></app-payment-form>
+    </div>
+  </form>
+</div>

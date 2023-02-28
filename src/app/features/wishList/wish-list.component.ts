@@ -3,7 +3,6 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ErrorComponent } from '@shared/error/error.component';
 import { ErrorhandlerService } from '@shared/interceptor/error.service';
 import { LoaderComponent } from '@shared/loader/loader.component';
-import { map } from 'rxjs';
 import { WishListService } from './wish-list.service';
 
 @Component({
@@ -16,10 +15,9 @@ import { WishListService } from './wish-list.service';
 })
 export default class WishListComponent {
   private wishListService = inject(WishListService);
+
   errorService = inject(ErrorhandlerService);
-
   errorClientServer$ = this.errorService.error$;
-
   wishList$ = this.wishListService.wishList$;
 
   remove(movieId: number) {

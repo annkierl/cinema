@@ -18,6 +18,7 @@ import { ErrorhandlerInterceptor } from '@shared/interceptor/errorhandler.interc
 import { LoaderInterceptor } from '@shared/interceptor/loader-interceptor.interceptor';
 import { LoaderComponent } from '@shared/loader/loader.component';
 import { ErrorComponent } from '@shared/error/error.component';
+import { UserGuard } from '../features/auth/guards/user.guard';
 
 @NgModule({
   providers: [
@@ -54,6 +55,7 @@ import { ErrorComponent } from '@shared/error/error.component';
       {
         path: 'shows/:id',
         component: ShowingsComponent,
+        canMatch: [UserGuard],
       },
       {
         path: 'auth',
@@ -62,31 +64,33 @@ import { ErrorComponent } from '@shared/error/error.component';
       {
         path: 'shows',
         loadChildren: () => import('../features/rooms/rooms.module'),
+        canMatch: [UserGuard],
       },
       {
         path: 'form',
         loadComponent: () => import('../features/OrderForm/form-container.component'),
+        canMatch: [UserGuard],
       },
       {
         path: 'wishList',
         loadComponent: () => import('../features/wishList/wish-list.component'),
+        canMatch: [UserGuard],
       },
       {
         path: 'myTickets',
         loadComponent: () => import('../features/myTickets/my-tickets.component'),
+        canMatch: [UserGuard],
       },
       {
         path: 'myTickets/:id',
         loadComponent: () => import('../features/myTickets/singleTicket/single-order.component'),
+        canMatch: [UserGuard],
       },
       {
         path: 'currentOrder',
         loadComponent: () => import('../features/OrderForm/successPyment/successPayment.component'),
+        canMatch: [UserGuard],
       },
-      // {
-      //   path: 'admin',
-      //   loadComponent: () => import('../features/adminPanel/admin.component'),
-      // },
     ]),
   ],
 })

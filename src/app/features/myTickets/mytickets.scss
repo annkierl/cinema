@@ -1,0 +1,30 @@
+.myTickets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.singleTicket {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 10px 10px;
+}
+.data {
+  padding: 15px 10px;
+  border-radius: 20px;
+  color: white;
+  background-color: #99c294;
+}
+p {
+  padding: 8px 5px;
+}
+
+.data:hover {
+  padding: 15px 10px;
+  border-radius: 20px;
+  color: white;
+  background-color: #87a982;
+  cursor: pointer;
+}

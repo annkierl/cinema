@@ -1,7 +1,9 @@
 import { CommonModule, NumberSymbol } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, Input, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
+import { TotalCostService } from '../OrderForm/OrderForm/TotalCost/totalCost.service';
 import { ScreenService } from '../rooms/screen/screen/screen.service';
 import { SingleTicketComponent } from './single-ticket/single-ticket.component';
 import { TicketsService } from './tickets.service';
@@ -16,18 +18,28 @@ import { TicketsService } from './tickets.service';
 })
 export class TicketsComponent {
   @ViewChild('options') options!: ElementRef;
+  @Input() reservedSeats!: number[][];
   selectedTicket = '';
 
   private router = inject(Router);
   private screenService = inject(ScreenService);
   private ticketService = inject(TicketsService);
+  private totalCostService = inject(TotalCostService);
 
   max10TicketsWarning$ = this.ticketService.max10TicketsWarning$;
-
+  totalCost$ = this.totalCostService.totalCost$;
+  choosentickets$1 = this.ticketService.choosenTickets$.pipe(
+    map(value => {
+      let sum = 0;
+      value.forEach(element => {
+        sum = sum + element.value;
+      });
+      return sum;
+    })
+  );
   ticket$ = this.ticketService.choosenTickets$;
   seat$ = this.ticketService.choosenSeat$;
   show$ = this.screenService.show$;
-  totalCost$ = this.ticketService.totalCost$;
   isTicketChoosen$ = this.ticketService.isTicketChoosen$;
 
   goToPayment() {
@@ -35,6 +47,6 @@ export class TicketsComponent {
   }
 
   ngOnDestroy() {
-    this.ticketService.resetSeats();
+    // this.ticketService.resetSeats();
   }
 }

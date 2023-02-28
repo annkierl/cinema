@@ -7,6 +7,8 @@ export interface singleMovieProp {
   title: string;
   hour?: string;
   hall?: number;
+  showId?: number;
+  reservedSeats?: number[];
 }
 
 @Component({
@@ -32,6 +34,7 @@ export class ShowsComponent {
       title: this.singleMovieProp[0].title,
       hour: hour,
       hall: screenId,
+      showId: showId,
     });
     this.screenService.getShow(showId);
   }
