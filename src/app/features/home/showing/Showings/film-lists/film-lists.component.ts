@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CalendarService } from '../calendar/calendar.service';
 import { ShowingsService } from '../showings.service';
 import { ShowsService } from './shows/shows.service';
+import { JudgeService } from './single-movie/judge/judge.service';
 
 @Component({
   selector: 'app-filmlists',
@@ -16,11 +16,14 @@ export class FilmListsComponent {
   private showingService = inject(ShowingsService);
   private showsService = inject(ShowsService);
   private calendarService = inject(CalendarService);
+  private judgeService = inject(JudgeService);
 
+  judge$ = this.judgeService.judge$;
   currentDay$ = this.calendarService.currentDay$;
-  showings = this.showingService.filmList$;
+  films$ = this.showingService.filmList$;
   scores$ = this.showingService.score$;
   shows$ = this.showsService.shows$;
+  wantToWatchButton$ = this.showingService.wantToWatchButton$;
 
   ngOnInit() {
     this.showingService.getScores();

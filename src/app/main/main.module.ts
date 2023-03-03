@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { JudgeComponent } from '../features/home/showing/Showings/film-lists/single-movie/judge/judge.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { PhoneValidatorDirective } from '../features/OrderForm/phone-validator.directive';
+import { PhoneValidatorDirective } from '../features/order-form/phone-validator.directive';
 import { AvrageOfArrayPipe } from '../avrage-of-array.pipe';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -68,7 +68,7 @@ import { UserGuard } from '../features/auth/guards/user.guard';
       },
       {
         path: 'form',
-        loadComponent: () => import('../features/OrderForm/form-container.component'),
+        loadComponent: () => import('../features/order-form/form-container.component'),
         canMatch: [UserGuard],
       },
       {
@@ -78,17 +78,17 @@ import { UserGuard } from '../features/auth/guards/user.guard';
       },
       {
         path: 'myTickets',
-        loadComponent: () => import('../features/myTickets/my-tickets.component'),
+        loadComponent: () => import('../features/my-tickets/my-tickets.component'),
         canMatch: [UserGuard],
       },
       {
         path: 'myTickets/:id',
-        loadComponent: () => import('../features/myTickets/singleTicket/single-order.component'),
+        loadComponent: () => import('../features/my-tickets/singleTicket/single-order.component'),
         canMatch: [UserGuard],
       },
       {
         path: 'currentOrder',
-        loadComponent: () => import('../features/OrderForm/successPyment/successPayment.component'),
+        loadComponent: () => import('../features/order-form/success-payment/success-payment.component'),
         canMatch: [UserGuard],
       },
     ]),

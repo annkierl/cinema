@@ -1,5 +1,5 @@
 <div *ngIf="currentDay$|async as currentDay ">
-  <div class="list" *ngIf="showsList$ | async as showsList">
+  <div class="list1" *ngIf="showsList$ | async as showsList">
     <div class="list" *ngIf="currenValue$| async as currentValue">
       <div *ngFor="let shows of showsList;">
         <div *ngIf="shows.movieId === id && shows.dateId===currentDay.id" class="hours-list">

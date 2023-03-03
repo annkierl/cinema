@@ -18,16 +18,6 @@
   ],
   "discount": [
     {
-      "id": 1,
-      "code": "222",
-      "discount": 5
-    },
-    {
-      "id": 2,
-      "code": "333",
-      "discount": 5
-    },
-    {
       "id": 3,
       "code": "444",
       "discount": 5
@@ -63,25 +53,16 @@
       "id": 1,
       "movieId": 1,
       "movieTitle": "Ghost in the shell"
-    },
-    {
-      "id": 2,
-      "movieId": 2,
-      "movieTitle": "Avatar: Istota wody"
     }
   ],
   "score": [
     {
-      "id": 1,
-      "score": [8, 8, 8, 8]
-    },
-    {
-      "id": 3,
-      "score": [8, 8, 8, 8]
-    },
-    {
       "id": 2,
-      "score": [8, 8, 8, 8]
+      "score": [8, 8, 8, 8, 9, 10, 4, 9]
+    },
+    {
+      "id": 1,
+      "score": [8, 8, 8, 8, 9, 10, 4, 9, 8]
     }
   ],
   "numberOfFilms": [
@@ -93,12 +74,6 @@
     },
     {
       "id": 3
-    }
-  ],
-  "judged2": [
-    {
-      "id": 1,
-      "movieId": [1, 22]
     }
   ],
   "orders": [
@@ -189,12 +164,42 @@
         }
       ],
       "id": 4
+    },
+    {
+      "userFirstName": "Wojtek",
+      "userLastName": "Kowalski",
+      "userEmail": "user@example.com",
+      "userPhoneNumber": "",
+      "movieTitle": "Ghost in the shell",
+      "hall": 1,
+      "hour": "15:30",
+      "ticket": [
+        {
+          "row": 6,
+          "column": 11,
+          "colIndexPrintOnScreen": 3,
+          "type": "Ulgowy",
+          "value": 15
+        },
+        {
+          "row": 6,
+          "column": 12,
+          "colIndexPrintOnScreen": 4,
+          "type": "Ulgowy",
+          "value": 15
+        }
+      ],
+      "id": 5
     }
   ],
   "blik": [
     {
       "id": 0,
       "code": 123456
+    },
+    {
+      "code": 222222,
+      "id": 1
     }
   ],
   "screens": [
@@ -294,7 +299,11 @@
         [6, 4],
         [7, 4],
         [6, 5],
-        [5, 6]
+        [5, 6],
+        [4, 11],
+        [5, 12],
+        [6, 11],
+        [6, 12]
       ],
       "priceList": [
         {
@@ -540,7 +549,12 @@
         [5, 3],
         [5, 4],
         [5, 2],
-        [6, 4]
+        [6, 4],
+        [10, 2],
+        [9, 3],
+        [10, 3],
+        [7, 5],
+        [8, 2]
       ],
       "priceList": [
         {
@@ -1078,6 +1092,36 @@
       ],
       "movieId": 3,
       "dateId": 6
+    },
+    {
+      "id": 24,
+      "screenId": 1,
+      "hour": "19:00",
+      "reservedSeats": [],
+      "priceList": [
+        {
+          "type": "Normalny",
+          "price": "30"
+        },
+        {
+          "type": "Ulgowy",
+          "price": "15"
+        },
+        {
+          "type": "Voucher",
+          "price": "20"
+        }
+      ],
+      "movieId": 2,
+      "dateId": 2,
+      "screenLayout": [],
+      "screen": {
+        "id": 1,
+        "name": "",
+        "rows": 10,
+        "colu": 10,
+        "specialSeats": []
+      }
     }
   ],
   "films": [
@@ -1180,8 +1224,9 @@
       "director": "Ryan Coogler",
       "actors": ["David", "Wiesława", "Gustaw", "Paweł"],
       "boxOff": 200,
-      "premier": true,
-      "addToFav": false
+      "premiere": true,
+      "addToFav": false,
+      "canBeJudged": false
     },
     {
       "id": 2,
@@ -1195,8 +1240,9 @@
       "director": "James Cameron",
       "actors": ["Stephen Lang", "Zoe Saldana", "Sam Worthington", "Sigourney Weaver"],
       "boxOff": 1000,
-      "premier": false,
-      "addToFav": false
+      "premiere": false,
+      "addToFav": false,
+      "canBeJudged": false
     },
     {
       "id": 3,
@@ -1211,6 +1257,83 @@
       "actors": ["Stephen Lang", "Zoe Saldana", "Sam Worthington", "Sigourney Weaver"],
       "boxOff": 1000,
       "premier": false,
+      "addToFav": false,
+      "canBeJudged": false
+    },
+    {
+      "id": 4,
+      "img": "222222",
+      "genre": "Dramat",
+      "title": "Halo Film",
+      "length": "120",
+      "descriptionShort": "2222222",
+      "descriptionLong": "222222",
+      "ageRest": "Pg-13",
+      "director": "Franek",
+      "actors": [],
+      "boxOff": "1",
+      "premiere": true,
+      "addToFav": false,
+      "canBeJudged": true
+    },
+    {
+      "id": 5,
+      "img": "222",
+      "genre": "222",
+      "title": "222",
+      "length": "22",
+      "descriptionShort": "222",
+      "descriptionLong": "22",
+      "ageRest": "Pg-13",
+      "director": "Franek",
+      "actors": [],
+      "boxOff": "1",
+      "premiere": true,
+      "addToFav": false
+    },
+    {
+      "id": 6,
+      "img": "33",
+      "genre": "33",
+      "title": "33",
+      "length": "33",
+      "descriptionShort": "33",
+      "descriptionLong": "33",
+      "ageRest": "Pg-13",
+      "director": "Franek",
+      "actors": [],
+      "boxOff": "1",
+      "premiere": true,
+      "addToFav": true
+    },
+    {
+      "id": 7,
+      "img": "ss",
+      "genre": "ss",
+      "title": "ss",
+      "length": "ss",
+      "descriptionShort": "ss",
+      "descriptionLong": "ss",
+      "ageRest": "Pg-13",
+      "director": "Franek",
+      "actors": [],
+      "boxOff": "1",
+      "premiere": true,
+      "addToFav": true
+    },
+    {
+      "id": 8,
+      "img": "ss",
+      "genre": "ss",
+      "title": "ss",
+      "length": "ss",
+      "descriptionShort": "ss",
+      "descriptionLong": "ss",
+      "ageRest": "Pg-13",
+      "director": "Franek",
+      "actors": [],
+      "boxOff": "1",
+      "premiere": true,
       "addToFav": false
     }
   ],
@@ -1235,6 +1358,13 @@
     },
     {
       "id": 6
+    }
+  ],
+  "judged": [
+    {
+      "id": 1,
+      "userId": 2,
+      "movieId": 1
     }
   ]
 }

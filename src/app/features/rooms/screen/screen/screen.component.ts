@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ErrorComponent } from '@shared/error/error.component';
 import { ErrorhandlerService } from '@shared/interceptor/error.service';
 import { LoaderComponent } from '@shared/loader/loader.component';
+import { ShowsService } from 'src/app/features/home/showing/Showings/film-lists/shows/shows.service';
 import { TicketsComponent } from 'src/app/features/tickets/tickets.component';
 import { DisplayComponent } from './display/display.component';
 import { ScreenService } from './screen.service';
@@ -18,9 +19,11 @@ import { ScreenService } from './screen.service';
 })
 export default class ScreenComponent {
   private screenService = inject(ScreenService);
+  private showsService = inject(ShowsService);
   private route = inject(ActivatedRoute);
   private errorService = inject(ErrorhandlerService);
 
+  choosenShowWithMovie$ = this.showsService.choosenShowWithMovie$;
   ShowId = this.route.snapshot.params['id'];
   show$ = this.screenService.show$;
   errorClientServer$ = this.errorService.error$;
@@ -28,5 +31,10 @@ export default class ScreenComponent {
 
   constructor() {
     this.screenService.getShow(this.ShowId);
+  }
+
+  ngOnInit() {
+    let param = this.route.snapshot.url[1].path;
+    this.showsService.getParticularShowWithMovieData(Number(param));
   }
 }

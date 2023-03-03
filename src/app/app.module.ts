@@ -9,8 +9,8 @@ import { API_URL, IS_PRODUCTION } from '@core/env.token';
 import { environment } from 'src/environment';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { Repertoir } from './features/adminPanel/admin-store/admin.reducer';
-import { RepertoirEffects, ShowEffects } from './features/adminPanel/admin-store/admin.effects';
+import { Repertoir } from './features/admin-panel/admin-store/admin.reducer';
+import { RepertoirEffects, ShowEffects } from './features/admin-panel/admin-store/admin.effects';
 import { AdminGuard } from './features/auth/guards/admin.guard';
 import { userReducer } from './features/auth/store/user.reducer';
 import { UserState } from './features/home/AppUser.interface';
@@ -49,17 +49,17 @@ export interface AppState {
           },
           {
             path: 'admin',
-            loadComponent: () => import('./features/adminPanel/admin.component'),
+            loadComponent: () => import('./features/admin-panel/admin.component'),
             canMatch: [AdminGuard],
           },
           {
             path: 'admin/showing',
-            loadComponent: () => import('./features/admin-form/admin-show-form/admin-show-form.component'),
+            loadComponent: () => import('./features/admin-panel/admin-form/admin-show-form.component'),
             canMatch: [AdminGuard],
           },
           {
             path: 'admin/films',
-            loadComponent: () => import('./features/admin-form/admin-form.component'),
+            loadComponent: () => import('./features/admin-panel/admin-form/admin-add-movie/admin-form.component'),
             canMatch: [AdminGuard],
           },
         ],

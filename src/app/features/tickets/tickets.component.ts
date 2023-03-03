@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, inject, Input, ViewChil
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
-import { TotalCostService } from '../OrderForm/OrderForm/TotalCost/totalCost.service';
+import { TotalCostService } from '../order-form/order-form/total-cost/total-cost.service';
 import { ScreenService } from '../rooms/screen/screen/screen.service';
 import { SingleTicketComponent } from './single-ticket/single-ticket.component';
 import { TicketsService } from './tickets.service';

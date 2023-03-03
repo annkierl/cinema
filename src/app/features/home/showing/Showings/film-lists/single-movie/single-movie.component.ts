@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
-import { map, tap } from 'rxjs';
-import { AuthService } from 'src/app/features/auth/auth.service';
-import { TokenService } from 'src/app/features/auth/token/token.service';
+import { map } from 'rxjs';
 import { WishListService } from 'src/app/features/wishList/wish-list.service';
 import { Film, Score } from '../../interfaces';
 import { ShowingsService } from '../../showings.service';
@@ -9,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { JudgeComponent } from './judge/judge.component';
 import { JudgeService } from './judge/judge.service';
 import { ShowsService } from '../shows/shows.service';
+import { Judge } from './judge/judge-interface';
 
 @Component({
   selector: 'app-single-movie',
@@ -20,25 +19,23 @@ export class SingleMovieComponent {
   @Input() singleMovie!: Film;
   @Input() scores!: Score[];
   @Input() currentDay!: { id: number };
+  @Input() judge!: Judge;
+  @Input() wantToWatchToggle!: { wantoWatch: string };
 
   private showingService = inject(ShowingsService);
   private showsSevice = inject(ShowsService);
   private wishListService = inject(WishListService);
-  private authService = inject(AuthService);
   private judgeService = inject(JudgeService);
+  private dialog = inject(MatDialog);
 
-  auth = this.authService.auth$;
-  shows$ = this.showsSevice.shows$;
-  wish$ = this.wishListService.wishList$;
   wishList$ = this.wishListService.wishList$;
   wantToWatchButton$ = this.showingService.wantToWatchButton$;
-  judge$ = this.judgeService.judge$;
-
   isShown = false;
-  wantToJudge = false;
-  constructor(public dialog: MatDialog) {
+
+  constructor() {
     this.setWantToWatchButton();
   }
+
   setWantToWatchButton() {
     this.wantToWatchButton$ = this.wishList$.pipe(
       map(val => {
@@ -46,9 +43,9 @@ export class SingleMovieComponent {
           return element.movieId === this.singleMovie.id;
         });
         if (exist) {
-          return 'Usuń z listy';
+          return { wantoWatch: 'Usuń z listy' };
         } else {
-          return 'Dodaj do listy';
+          return { wantoWatch: 'Dodaj do listy' };
         }
       })
     );
@@ -65,19 +62,11 @@ export class SingleMovieComponent {
       enterAnimationDuration,
       exitAnimationDuration,
     });
-    let isJudged = judgedMovie.some(element => element === movieId);
-    if (isJudged) {
-      this.judgeService.changeStatusOfJudge(true);
-    }
-    this.judgeService.setMovieId(movieId);
+    this.judgeService.judgeOpenDialog(judgedMovie, movieId);
   }
 
-  toggle() {
+  ShowMoreLess() {
     this.isShown = !this.isShown;
-  }
-
-  ShowRepertoir(id: string) {
-    this.showingService.checkFilmsForAnotherDays(id);
   }
 
   toggleWantToWatch(movieId: number, movieTitle: string, wantToWatchToggle: string) {
@@ -91,7 +80,6 @@ export class SingleMovieComponent {
   }
 
   ngOnInit() {
-    this.judgeService.getJudgedFilms();
     this.showsSevice.getShowsSetForDay(this.currentDay.id);
   }
 }

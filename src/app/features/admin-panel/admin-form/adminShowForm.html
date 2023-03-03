@@ -1,0 +1,10 @@
+<div class="add">
+  <div class="title">Dodaj seans:</div>
+  <div *ngIf="films$ |async as films">
+    <ul>
+      <li>
+        <app-admin-add-showing [movies]="films.films"></app-admin-add-showing>
+      </li>
+    </ul>
+  </div>
+</div>

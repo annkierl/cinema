@@ -16,8 +16,8 @@ export const initialFilms: Film = {
     actors: [''],
     boxOff: '',
     premiere: true,
-
     addToFav: false,
+    canBeJudged: true,
   },
 };
 export const initialShows: Shows = {

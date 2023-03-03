@@ -1,0 +1,28 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: center;
+  padding-top: 30%;
+}
+
+.button {
+  border: none;
+  width: 130px;
+  border-radius: 10px;
+  padding: 20px 20px;
+  font-family: 'Roboto Mono', monospace;
+  color: white;
+  background-color: #bdb2b2;
+}
+.button:hover {
+  color: black;
+  -webkit-box-shadow: 8px 8px 24px 9px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px 9px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 24px 9px rgb(231, 231, 231);
+}
+
+.main-container {
+  height: 100%;
+  background-color: rgb(32, 29, 29);
+}

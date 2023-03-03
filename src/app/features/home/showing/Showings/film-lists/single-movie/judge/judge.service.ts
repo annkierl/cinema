@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
 import { TokenService } from 'src/app/features/auth/token/token.service';
 import { ShowingsService } from '../../../showings.service';
 import { initialStateJudge, Judge } from './judge-interface';
+import { JudgeComponent } from './judge.component';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +16,6 @@ export class JudgeService {
   private wasJudged$$ = new BehaviorSubject<{ boolean: boolean }>({ boolean: false });
   private http = inject(HttpClient);
   private showingService = inject(ShowingsService);
-  private tokenService = inject(TokenService);
-  private userId = this.tokenService.decodeUserToken();
 
   get judge$() {
     return this.judge$$.asObservable();
@@ -29,18 +29,20 @@ export class JudgeService {
     return this.wasJudged$$.asObservable();
   }
 
-  getJudgedFilms() {
-    this.http.get<Judge>(`http://localhost:3000/judged2/1`).subscribe(judge => this.judge$$.next(judge));
+  postJudgeMovie(movieId: number, dayId: number) {
+    this.http
+      .patch(`http://localhost:3000/movies/${movieId}`, {
+        canBeJudged: false,
+      })
+      .subscribe(val => this.showingService.checkFilmsForAnotherDays(`${dayId}`)); // geta na movie
   }
 
-  postJudgedFilm(filmId: number) {
-    const previousUserJudnedFilms = this.judge$$.value.movieId;
-    this.http
-      .patch(`http://localhost:3000/judged2/1`, {
-        movieId: [...previousUserJudnedFilms, filmId],
-      })
-      .subscribe(judge => this.getJudgedFilms());
-  }
+  // postJudgedFilm(filmId: number) {
+  //   const previousUserJudnedFilms = this.judge$$.value.movieId;
+  //   this.http.patch(`http://localhost:3000/judged2/1`, {
+  //     movieId: [...previousUserJudnedFilms, filmId],
+  //   });
+  // }
 
   setMovieId(movieId: number) {
     this.movieId$$.next({ movieId });
@@ -51,5 +53,13 @@ export class JudgeService {
 
   postFilmJudge(movieId: number, mark: number) {
     this.showingService.postNewScore(movieId, mark);
+  }
+
+  judgeOpenDialog(judgedMovie: number[], movieId: number) {
+    // let isJudged = judgedMovie.some(element => element === movieId);
+    // if (isJudged) {
+    //   this.changeStatusOfJudge(true);
+    // }
+    this.setMovieId(movieId);
   }
 }

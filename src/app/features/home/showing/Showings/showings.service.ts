@@ -11,17 +11,23 @@ import { ShowsService } from './film-lists/shows/shows.service';
 export class ShowingsService {
   private filmsList$$ = new BehaviorSubject<Film[]>([initialFilms]);
   private score$$ = new BehaviorSubject<Score[]>([{ id: 0, score: [] }]);
-  private wantToWatch$$ = new BehaviorSubject<string>('');
+  private wantToWatch$$ = new BehaviorSubject<{ wantoWatch: string }>({ wantoWatch: '' });
   private http = inject(HttpClient);
 
   constructor() {
-    this.http
-      .get<Film[]>(`http://localhost:3000/films?dateId=0&_expand=movie`)
-      .subscribe(films => this.filmsList$$.next(films));
+    this.checkFilmsForAnotherDays('0');
   }
 
   get score$() {
     return this.score$$.asObservable();
+  }
+
+  get wantToWatchButton$() {
+    return this.wantToWatch$$.asObservable();
+  }
+
+  get filmList$() {
+    return this.filmsList$$.asObservable();
   }
 
   getScores() {
@@ -40,26 +46,21 @@ export class ShowingsService {
       .subscribe(value => this.getScores());
   }
 
-  get filmList$() {
-    return this.filmsList$$.asObservable();
+  postFilms(movieId: number, dayId: number) {
+    this.http.post(`http://localhost:3000/films`, { id: movieId, movieId: movieId, dateId: dayId }).subscribe();
   }
 
-  postFilms(movieId: number, dayId: number) {
-    this.http.post(`http://localhost:3000/films`, { id: 14, movieId: movieId, dateId: dayId }).subscribe();
-  }
   checkFilmsForAnotherDays(id: string) {
     this.http
       .get<Film[]>(`http://localhost:3000/films?dateId=${id}&_expand=movie`)
       .subscribe(films => this.filmsList$$.next(films));
   }
+
   wantToWatchAdd() {
-    return this.wantToWatch$$.next('Dodaj do listy');
+    return this.wantToWatch$$.next({ wantoWatch: 'Dodaj do listy' });
   }
 
   wantToWatchRemove() {
-    return this.wantToWatch$$.next('Usuń z listy');
-  }
-  get wantToWatchButton$() {
-    return this.wantToWatch$$.asObservable();
+    return this.wantToWatch$$.next({ wantoWatch: 'Usuń z listy' });
   }
 }

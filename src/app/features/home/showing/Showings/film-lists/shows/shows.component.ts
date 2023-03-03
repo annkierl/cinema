@@ -30,6 +30,7 @@ export class ShowsComponent {
   showsList$ = this.showsService.shows$;
 
   chooseHour(showId: number, hour: string, screenId: number) {
+    // this.showsService.getParticularShowWithMovieData(showId);
     this.screenService.getFilmProp({
       title: this.singleMovieProp[0].title,
       hour: hour,
