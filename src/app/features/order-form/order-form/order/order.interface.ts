@@ -8,6 +8,7 @@ export interface Order {
   movieTitle: string;
   hall: number;
   hour: string;
+  dayId?: string;
   //   tickets:Ticket[]
 }
 export const initialOrder = {
@@ -18,6 +19,7 @@ export const initialOrder = {
   movieTitle: '',
   hall: 0,
   hour: '',
+  dayId: '',
 };
 
 export interface SingleOrder {
@@ -30,6 +32,7 @@ export interface SingleOrder {
   hall: number;
   hour: string;
   ticket: Ticket[];
+  dayId: string;
 }
 
 export const initialSingleOrder = {
@@ -42,4 +45,5 @@ export const initialSingleOrder = {
   hall: 0,
   hour: '',
   tickets: [],
+  dayId: '',
 };

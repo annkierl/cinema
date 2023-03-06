@@ -6,16 +6,16 @@
 }
 
 .seat-button:disabled {
-  background-color: #60795d;
+  background-color: #877e7e;
 }
 .choosen {
   background-color: #94e98b;
 }
 .free {
-  background-color: #b5dab0;
+  background-color: #c7c1c1;
 }
 .choosen,
 .seat-button:hover {
-  background-color: #94e98b;
+  background-color: #dad6d6;
   cursor: pointer;
 }

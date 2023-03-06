@@ -1,10 +1,11 @@
 <app-loader></app-loader>
 <div class="myTickets">
-  <div *ngIf="orders$ |async as orders">
+  <div class="ticketLists" *ngIf="orders$ |async as orders">
     <div class="singleTicket" *ngFor="let order of orders" [routerLink]="['/myTickets', order.id]">
       <div class="data">
-        <p>Tytuł:{{order.movieTitle}}</p>
-        <p>Tytuł:{{order.hour}}</p>
+        <p>Tytuł: {{order.movieTitle}}</p>
+        <p>Dzień: {{order.dayId}}</p>
+        <p>Godzina: {{order.hour}}</p>
       </div>
     </div>
   </div>

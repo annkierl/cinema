@@ -4,7 +4,6 @@ import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angula
 import { NoSpaceDirective } from '@shared/no-space.directive';
 import { FormPaymentService } from '../form-payment.service';
 import { OrderService } from '../Order/order.service';
-
 @Component({
   selector: 'app-payment-form',
   standalone: true,

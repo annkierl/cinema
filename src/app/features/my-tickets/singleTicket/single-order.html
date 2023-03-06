@@ -2,7 +2,7 @@
 <div class="container">
   <div class="myOrder">
     <div class="main" *ngIf="orders$ |async as orders; else error">
-      <h1>Moje zamówienie</h1>
+      <h1>zamówienie</h1>
       <div class="sections">
         <p>Dane zamawiającego:</p>
         <p>Imię: {{orders[id-1].userFirstName}}</p>
@@ -12,6 +12,7 @@
       </div>
       <div class="sections">
         <p>Film:</p>
+        <p>Data: {{orders[id-1].dayId}}</p>
         <p>Tytuł filmu: {{orders[id-1].movieTitle}}</p>
         <p>Godzina: {{orders[id-1].hour}}</p>
         <p>Numer Sali: {{orders[id-1].hall}}</p>

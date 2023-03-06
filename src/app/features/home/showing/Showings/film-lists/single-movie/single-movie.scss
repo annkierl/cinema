@@ -12,7 +12,7 @@
     padding: 16px 10px;
     gap: 12px;
     .movie-content-title {
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Montserrat', sans-serif;
       display: flex;
       color: white;
       width: 80%;
@@ -81,6 +81,7 @@
     cursor: pointer;
   }
   .description {
+    font-family: 'Montserrat', sans-serif;
     width: 60%;
     padding: 10px 5px;
     color: white;

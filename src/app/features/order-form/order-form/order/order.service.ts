@@ -37,6 +37,7 @@ export class OrderService {
             movieTitle: order.movieTitle,
             hall: order.hall,
             hour: order.hour,
+            dayId: order.dayId,
             ticket: [...tickets],
           });
         })

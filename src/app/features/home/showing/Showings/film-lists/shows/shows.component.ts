@@ -9,6 +9,7 @@ export interface singleMovieProp {
   hall?: number;
   showId?: number;
   reservedSeats?: number[];
+  dayId?: string;
 }
 
 @Component({

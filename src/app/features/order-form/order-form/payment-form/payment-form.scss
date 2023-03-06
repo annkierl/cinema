@@ -1,4 +1,29 @@
 .error {
   border-color: red;
-  color: red;
+  color: rgb(150, 49, 49);
+}
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.button {
+  border: none;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-family: 'Roboto Mono', monospace;
+  background-color: #bdb2b2;
+  cursor: pointer;
+}
+
+.button:hover {
+  -webkit-box-shadow: 2px 17px 39px -10px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 2px 17px 39px -10px rgba(66, 68, 90, 1);
+  box-shadow: 2px 17px 39px -10px rgb(231, 231, 231);
+  color: black;
+  cursor: pointer;
 }

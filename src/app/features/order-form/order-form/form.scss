@@ -12,7 +12,28 @@
   }
 }
 
+.button {
+  border: none;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-family: 'Roboto Mono', monospace;
+  color: white;
+  background-color: #bdb2b2;
+  cursor: pointer;
+  padding: 2px 8px;
+}
+
+.button:hover {
+  -webkit-box-shadow: 2px 17px 39px -10px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 2px 17px 39px -10px rgba(66, 68, 90, 1);
+  box-shadow: 2px 17px 39px -10px rgb(231, 231, 231);
+  color: black;
+}
+
 .error {
   border-color: red;
-  color: red;
+  color: rgb(153, 27, 27);
 }

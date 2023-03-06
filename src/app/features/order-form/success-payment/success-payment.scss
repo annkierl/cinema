@@ -3,9 +3,32 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 30px;
+  color: white;
+  height: 100vh;
 }
 
 .link {
-  color: blue;
+  cursor: pointer;
+}
+
+.goToOrder {
+  display: flex;
+  margin: 30px 70px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-family: 'Roboto Mono', monospace;
+  color: white;
+  background-color: #bdb2b2;
+  cursor: pointer;
+}
+
+.goToOrder:hover {
+  -webkit-box-shadow: 0px 0px 31px -12px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 31px -12px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 31px -12px rgb(231, 231, 231);
+  color: black;
   cursor: pointer;
 }

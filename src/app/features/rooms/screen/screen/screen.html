@@ -1,19 +1,21 @@
 <app-loader></app-loader>
 <div class="main">
-  <div *ngIf=" choosenShowWithMovie$|async as choosenShowWithMovie">
-    <div class="title" *ngIf="singleMovieProp$|async as movieProp; else error">
-      <p>TYTUŁ: {{ choosenShowWithMovie.movie.title}}</p>
-      <p>GODZINA: {{ choosenShowWithMovie.hour}}</p>
-      <p>Numer sali: {{ choosenShowWithMovie.screenId}}</p>
-      <div class="screen">
-        <p>Ekran</p>
-        <div class="screen-screen"></div>
-      </div>
+  <div class="title" *ngIf=" choosenShowWithMovie$|async as choosenShowWithMovie;  else error">
+    <p>TYTUŁ: {{ choosenShowWithMovie.movie.title}}</p>
+    <p>GODZINA: {{ choosenShowWithMovie.hour}}</p>
+    <p>Numer sali: {{ choosenShowWithMovie.screenId}}</p>
+    <div class="screen">
+      <p>Ekran</p>
+      <div class="screen-screen"></div>
     </div>
-  </div>
-  <div *ngIf="show$ |async as show;">
-    <app-display></app-display>
-    <app-tickets [reservedSeats]="show.reservedSeats"></app-tickets>
+
+    <div *ngIf="show$ |async as show;">
+      <app-display></app-display>
+
+      <app-tickets
+        [reservedSeats]="show.reservedSeats"
+        [choosenMovieProp]="{title:choosenShowWithMovie.movie.title, hour: choosenShowWithMovie.hour, hall:choosenShowWithMovie.screenId} "></app-tickets>
+    </div>
   </div>
 </div>
 

@@ -5,12 +5,17 @@
 }
 
 .delete {
-  padding: 5px 15px;
+  margin: 0px 10px;
+  padding: 5px 10px;
   border: none;
   border-radius: 10px;
-  background-color: #99c294;
   color: white;
+  background-color: #bdb2b2;
+  cursor: pointer;
 }
 .delete:hover {
-  background-color: #87a982;
+  -webkit-box-shadow: 2px 17px 39px -10px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 2px 17px 39px -10px rgba(66, 68, 90, 1);
+  box-shadow: 2px 17px 39px -10px rgb(231, 231, 231);
+  color: black;
 }

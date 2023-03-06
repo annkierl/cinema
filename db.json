@@ -53,16 +53,40 @@
       "id": 1,
       "movieId": 1,
       "movieTitle": "Ghost in the shell"
+    },
+    {
+      "id": 2,
+      "movieId": 2,
+      "movieTitle": "Avatar: Istota wody"
     }
   ],
   "score": [
     {
       "id": 2,
-      "score": [8, 8, 8, 8, 9, 10, 4, 9]
+      "score": [
+        8,
+        8,
+        8,
+        8,
+        9,
+        10,
+        4,
+        9
+      ]
     },
     {
       "id": 1,
-      "score": [8, 8, 8, 8, 9, 10, 4, 9, 8]
+      "score": [
+        8,
+        8,
+        8,
+        8,
+        9,
+        10,
+        4,
+        9,
+        8
+      ]
     }
   ],
   "numberOfFilms": [
@@ -78,118 +102,51 @@
   ],
   "orders": [
     {
-      "id": 1,
-      "userFirstName": "Ziemowit",
-      "userLastName": "Nowak",
-      "userEmail": "nowakz@gmail.com",
-      "userPhoneNumber": "123456789",
-      "movieTitle": "Ghost In the shell",
-      "hall": 1,
-      "hour": "13:30"
-    },
-    {
-      "userFirstName": "Wojtek2",
-      "userLastName": "Kowalski",
-      "userEmail": "user@example.com",
-      "userPhoneNumber": "",
-      "movieTitle": "Ghost in the shell",
-      "hall": 3,
-      "hour": "20:30",
-      "ticket": [
-        {
-          "row": 10,
-          "column": 3,
-          "colIndexPrintOnScreen": 10,
-          "type": "Normalny",
-          "value": 20
-        },
-        {
-          "row": 11,
-          "column": 4,
-          "colIndexPrintOnScreen": 11,
-          "type": "Normalny",
-          "value": 20
-        },
-        {
-          "row": 11,
-          "column": 5,
-          "colIndexPrintOnScreen": 12,
-          "type": "Ulgowy",
-          "value": 10
-        }
-      ],
-      "id": 2
-    },
-    {
       "userFirstName": "Wojtek",
       "userLastName": "Kowalski",
       "userEmail": "user@example.com",
       "userPhoneNumber": "",
       "movieTitle": "Ghost in the shell",
       "hall": 1,
-      "hour": "16:30",
+      "hour": "10:30",
+      "dayId": "02/28/23",
       "ticket": [
         {
-          "row": 5,
-          "column": 4,
-          "colIndexPrintOnScreen": 7,
-          "type": "Normalny",
-          "value": 30
+          "row": 2,
+          "column": 12,
+          "colIndexPrintOnScreen": 4,
+          "type": "Voucher",
+          "value": 20
         }
       ],
-      "id": 3
+      "id": 14
     },
     {
       "userFirstName": "Wojtek",
       "userLastName": "Kowalski",
       "userEmail": "user@example.com",
       "userPhoneNumber": "",
-      "movieTitle": "Ghost in the shell",
+      "movieTitle": "Kot w butach. Ostanie życzenie",
       "hall": 3,
-      "hour": "12:30",
+      "hour": "18:30",
+      "dayId": "03/06/23",
       "ticket": [
         {
           "row": 10,
           "column": 16,
           "colIndexPrintOnScreen": 8,
-          "type": "Normalny",
-          "value": 30
+          "type": "Voucher",
+          "value": 20
         },
         {
-          "row": 10,
-          "column": 2,
-          "colIndexPrintOnScreen": 9,
-          "type": "Normalny",
-          "value": 30
-        }
-      ],
-      "id": 4
-    },
-    {
-      "userFirstName": "Wojtek",
-      "userLastName": "Kowalski",
-      "userEmail": "user@example.com",
-      "userPhoneNumber": "",
-      "movieTitle": "Ghost in the shell",
-      "hall": 1,
-      "hour": "15:30",
-      "ticket": [
-        {
-          "row": 6,
-          "column": 11,
-          "colIndexPrintOnScreen": 3,
-          "type": "Ulgowy",
-          "value": 15
-        },
-        {
-          "row": 6,
-          "column": 12,
-          "colIndexPrintOnScreen": 4,
+          "row": 9,
+          "column": 16,
+          "colIndexPrintOnScreen": 8,
           "type": "Ulgowy",
           "value": 15
         }
       ],
-      "id": 5
+      "id": 15
     }
   ],
   "blik": [
@@ -200,6 +157,38 @@
     {
       "code": 222222,
       "id": 1
+    },
+    {
+      "code": 444444,
+      "id": 2
+    },
+    {
+      "code": 666666,
+      "id": 3
+    },
+    {
+      "code": 666666,
+      "id": 4
+    },
+    {
+      "code": 222222,
+      "id": 5
+    },
+    {
+      "code": 222222,
+      "id": 6
+    },
+    {
+      "code": 222222,
+      "id": 7
+    },
+    {
+      "code": 222222,
+      "id": 8
+    },
+    {
+      "code": 444444,
+      "id": 9
     }
   ],
   "screens": [
@@ -208,21 +197,38 @@
       "name": "A",
       "rows": 8,
       "colu": 12,
-      "specialSeats": ["F6", "F5", "F7", "E7", "E8", "E6"]
+      "specialSeats": [
+        "F6",
+        "F5",
+        "F7",
+        "E7",
+        "E8",
+        "E6"
+      ]
     },
     {
       "id": 2,
       "name": "B",
       "rows": 5,
       "colu": 9,
-      "specialSeats": ["E4", "D4", "E5", "D5"]
+      "specialSeats": [
+        "E4",
+        "D4",
+        "E5",
+        "D5"
+      ]
     },
     {
       "id": 3,
       "name": "C",
       "rows": 12,
       "colu": 16,
-      "specialSeats": ["J8", "J9", "J10", "J7"]
+      "specialSeats": [
+        "J8",
+        "J9",
+        "J10",
+        "J7"
+      ]
     }
   ],
   "show": [
@@ -231,12 +237,54 @@
       "hour": "10:30",
       "screenId": 1,
       "reservedSeats": [
-        [1, 3],
-        [4, 5],
-        [1, 2],
-        [5, 5],
-        [6, 5],
-        [5, 4]
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          2,
+          12
+        ]
       ],
       "priceList": [
         {
@@ -260,12 +308,62 @@
       "hour": "12:30",
       "screenId": 1,
       "reservedSeats": [
-        [1, 2],
-        [3, 4],
-        [1, 5],
-        [7, 6],
-        [2, 5],
-        [3, 5]
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          5,
+          3
+        ]
       ],
       "priceList": [
         {
@@ -289,21 +387,202 @@
       "hour": "15:30",
       "screenId": 1,
       "reservedSeats": [
-        [1, 2],
-        [3, 4],
-        [1, 5],
-        [7, 6],
-        [3, 7],
-        [5, 5],
-        [4, 6],
-        [6, 4],
-        [7, 4],
-        [6, 5],
-        [5, 6],
-        [4, 11],
-        [5, 12],
-        [6, 11],
-        [6, 12]
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          5,
+          12
+        ],
+        [
+          6,
+          11
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          8
+        ]
       ],
       "priceList": [
         {
@@ -327,10 +606,22 @@
       "hour": "10:00",
       "screenId": 2,
       "reservedSeats": [
-        [1, 2],
-        [3, 4],
-        [1, 5],
-        [7, 6]
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          7,
+          6
+        ]
       ],
       "priceList": [
         {
@@ -354,10 +645,22 @@
       "hour": "21:21",
       "screenId": 2,
       "reservedSeats": [
-        [1, 2],
-        [3, 4],
-        [1, 5],
-        [7, 6]
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          7,
+          6
+        ]
       ],
       "priceList": [
         {
@@ -381,10 +684,22 @@
       "hour": "16:30",
       "screenId": 1,
       "reservedSeats": [
-        [1, 2],
-        [2, 4],
-        [1, 5],
-        [3, 6]
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          6
+        ]
       ],
       "priceList": [
         {
@@ -408,10 +723,22 @@
       "hour": "20:30",
       "screenId": 3,
       "reservedSeats": [
-        [1, 1],
-        [2, 2],
-        [3, 3],
-        [3, 4]
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -435,11 +762,26 @@
       "screenId": 1,
       "hour": "10:30",
       "reservedSeats": [
-        [1, 1],
-        [3, 3],
-        [1, 5],
-        [4, 3],
-        [1, 2]
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          1,
+          2
+        ]
       ],
       "priceList": [
         {
@@ -463,10 +805,22 @@
       "hour": "14:30",
       "screenId": 3,
       "reservedSeats": [
-        [1, 1],
-        [3, 3],
-        [1, 5],
-        [4, 3]
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          3
+        ]
       ],
       "priceList": [
         {
@@ -490,10 +844,22 @@
       "hour": "18:30",
       "screenId": 2,
       "reservedSeats": [
-        [1, 3],
-        [1, 4],
-        [4, 4],
-        [4, 3]
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          3
+        ]
       ],
       "priceList": [
         {
@@ -517,10 +883,22 @@
       "hour": "12:30",
       "screenId": 1,
       "reservedSeats": [
-        [3, 3],
-        [3, 4],
-        [5, 5],
-        [5, 6]
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          6
+        ]
       ],
       "priceList": [
         {
@@ -544,17 +922,62 @@
       "hour": "18:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4],
-        [5, 2],
-        [6, 4],
-        [10, 2],
-        [9, 3],
-        [10, 3],
-        [7, 5],
-        [8, 2]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          9,
+          14
+        ],
+        [
+          10,
+          16
+        ],
+        [
+          9,
+          16
+        ]
       ],
       "priceList": [
         {
@@ -578,10 +1001,22 @@
       "hour": "08:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -605,10 +1040,22 @@
       "hour": "11:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -632,10 +1079,26 @@
       "hour": "06:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          3
+        ]
       ],
       "priceList": [
         {
@@ -659,10 +1122,22 @@
       "hour": "14:20",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -686,10 +1161,22 @@
       "hour": "19:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -713,10 +1200,22 @@
       "hour": "10:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -740,18 +1239,66 @@
       "hour": "19:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4],
-        [10, 3],
-        [10, 4],
-        [9, 3],
-        [9, 4],
-        [11, 2],
-        [6, 15],
-        [6, 10],
-        [10, 6]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          6,
+          15
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
       ],
       "priceList": [
         {
@@ -775,10 +1322,22 @@
       "hour": "10:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -802,14 +1361,42 @@
       "hour": "12:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4],
-        [6, 2],
-        [10, 3],
-        [8, 4],
-        [6, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          9,
+          2
+        ]
       ],
       "priceList": [
         {
@@ -833,10 +1420,22 @@
       "hour": "13:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -860,10 +1459,22 @@
       "hour": "17:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -887,10 +1498,22 @@
       "hour": "08:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -913,7 +1536,12 @@
       "id": 21,
       "hour": "15:20",
       "screenId": 3,
-      "reservedSeats": [[7, 14]],
+      "reservedSeats": [
+        [
+          7,
+          14
+        ]
+      ],
       "priceList": [
         {
           "type": "Normalny",
@@ -936,10 +1564,22 @@
       "hour": "21:30",
       "screenId": 2,
       "reservedSeats": [
-        [1, 1],
-        [3, 3],
-        [1, 5],
-        [4, 3]
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          3
+        ]
       ],
       "priceList": [
         {
@@ -963,10 +1603,22 @@
       "hour": "19:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -990,10 +1642,22 @@
       "hour": "08:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -1017,10 +1681,22 @@
       "hour": "10:00",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -1044,10 +1720,22 @@
       "hour": "12:30",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -1071,10 +1759,22 @@
       "hour": "15:00",
       "screenId": 3,
       "reservedSeats": [
-        [3, 6],
-        [3, 5],
-        [5, 3],
-        [5, 4]
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          4
+        ]
       ],
       "priceList": [
         {
@@ -1222,7 +1922,12 @@
       "descriptionShort": "Akcja filmu „Avatar: Istota wody” rozgrywa się ponad dziesięć lat po wydarzeniach z pierwszej części. To opowieść o rodzinie Jake’a i Neytiri oraz ich staraniach, by zapewnić bezpieczeństwo sobie i swoim dzieciom, mimo tragedii",
       "descriptionLong": "Akcja filmu „Avatar: Istota wody” rozgrywa się ponad dziesięć lat po wydarzeniach z pierwszej części. To opowieść o rodzinie Jake’a i Neytiri oraz ich staraniach, by zapewnić bezpieczeństwo sobie i swoim dzieciom, mimo tragedii, których wspólnie doświadczają i bitew, które muszą stoczyć, aby przeżyć. W filmie Avatar: Istota wody znajduje się kilka scen z dynamicznymi efektami świetlnymi, które mogą powodować dyskomfort u widzów wrażliwych na światło i wpływać na osoby z epilepsją fotogenną.",
       "director": "Ryan Coogler",
-      "actors": ["David", "Wiesława", "Gustaw", "Paweł"],
+      "actors": [
+        "David",
+        "Wiesława",
+        "Gustaw",
+        "Paweł"
+      ],
       "boxOff": 200,
       "premiere": true,
       "addToFav": false,
@@ -1238,7 +1943,12 @@
       "descriptionShort": "Whenever i have time i will add some description",
       "descriptionLong": "Akcja filmu „Avatar: Istota wody” rozgrywa się ponad dziesięć lat po wydarzeniach z pierwszej części. To opowieść o rodzinie Jake’a i Neytiri oraz ich staraniach, by zapewnić bezpieczeństwo sobie i swoim dzieciom, mimo tragedii, których wspólnie doświadczają i bitew, które muszą stoczyć, aby przeżyć. W filmie Avatar: Istota wody znajduje się kilka scen z dynamicznymi efektami świetlnymi, które mogą powodować dyskomfort u widzów wrażliwych na światło i wpływać na osoby z epilepsją fotogenną.",
       "director": "James Cameron",
-      "actors": ["Stephen Lang", "Zoe Saldana", "Sam Worthington", "Sigourney Weaver"],
+      "actors": [
+        "Stephen Lang",
+        "Zoe Saldana",
+        "Sam Worthington",
+        "Sigourney Weaver"
+      ],
       "boxOff": 1000,
       "premiere": false,
       "addToFav": false,
@@ -1254,87 +1964,16 @@
       "descriptionShort": "Nadchodzi sequel nominowanej do Oscara® w 2011 roku animacji „Kot w Butach”. Film zarobił na całym świecie ponad 550 milionów dolarów. Kontynuacja Dreamworks",
       "descriptionLong": "Akcja filmu „Avatar: Istota wody” rozgrywa się ponad dziesięć lat po wydarzeniach z pierwszej części. To opowieść o rodzinie Jake’a i Neytiri oraz ich staraniach, by zapewnić bezpieczeństwo sobie i swoim dzieciom, mimo tragedii, których wspólnie doświadczają i bitew, które muszą stoczyć, aby przeżyć. W filmie Avatar: Istota wody znajduje się kilka scen z dynamicznymi efektami świetlnymi, które mogą powodować dyskomfort u widzów wrażliwych na światło i wpływać na osoby z epilepsją fotogenną.",
       "director": "James Cameron",
-      "actors": ["Stephen Lang", "Zoe Saldana", "Sam Worthington", "Sigourney Weaver"],
+      "actors": [
+        "Stephen Lang",
+        "Zoe Saldana",
+        "Sam Worthington",
+        "Sigourney Weaver"
+      ],
       "boxOff": 1000,
       "premier": false,
       "addToFav": false,
-      "canBeJudged": false
-    },
-    {
-      "id": 4,
-      "img": "222222",
-      "genre": "Dramat",
-      "title": "Halo Film",
-      "length": "120",
-      "descriptionShort": "2222222",
-      "descriptionLong": "222222",
-      "ageRest": "Pg-13",
-      "director": "Franek",
-      "actors": [],
-      "boxOff": "1",
-      "premiere": true,
-      "addToFav": false,
       "canBeJudged": true
-    },
-    {
-      "id": 5,
-      "img": "222",
-      "genre": "222",
-      "title": "222",
-      "length": "22",
-      "descriptionShort": "222",
-      "descriptionLong": "22",
-      "ageRest": "Pg-13",
-      "director": "Franek",
-      "actors": [],
-      "boxOff": "1",
-      "premiere": true,
-      "addToFav": false
-    },
-    {
-      "id": 6,
-      "img": "33",
-      "genre": "33",
-      "title": "33",
-      "length": "33",
-      "descriptionShort": "33",
-      "descriptionLong": "33",
-      "ageRest": "Pg-13",
-      "director": "Franek",
-      "actors": [],
-      "boxOff": "1",
-      "premiere": true,
-      "addToFav": true
-    },
-    {
-      "id": 7,
-      "img": "ss",
-      "genre": "ss",
-      "title": "ss",
-      "length": "ss",
-      "descriptionShort": "ss",
-      "descriptionLong": "ss",
-      "ageRest": "Pg-13",
-      "director": "Franek",
-      "actors": [],
-      "boxOff": "1",
-      "premiere": true,
-      "addToFav": true
-    },
-    {
-      "id": 8,
-      "img": "ss",
-      "genre": "ss",
-      "title": "ss",
-      "length": "ss",
-      "descriptionShort": "ss",
-      "descriptionLong": "ss",
-      "ageRest": "Pg-13",
-      "director": "Franek",
-      "actors": [],
-      "boxOff": "1",
-      "premiere": true,
-      "addToFav": false
     }
   ],
   "dates": [

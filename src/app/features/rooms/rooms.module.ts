@@ -15,7 +15,7 @@ import ScreenComponent from './screen/screen/screen.component';
         component: RoomsComponent,
       },
       {
-        path: ':id/:id',
+        path: ':dayid/:id',
         loadComponent: () => import('./screen/screen/screen.component'),
       },
     ]),

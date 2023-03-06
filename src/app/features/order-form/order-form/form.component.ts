@@ -106,6 +106,7 @@ export class FormComponent {
       movieTitle: movieTitle,
       hall: hall,
       hour: hour,
+      dayId: this.movieDetails.dayId,
     };
     this.orderService.addOrder(orderData);
     this.formPaymentService.goToPayment();
