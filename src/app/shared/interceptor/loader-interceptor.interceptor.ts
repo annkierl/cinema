@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
-import { Observable, finalize } from 'rxjs';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse } from '@angular/common/http';
+import { Observable, finalize, map, tap } from 'rxjs';
 import { LoaderService } from './loaderhandler.service';
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
@@ -10,7 +10,6 @@ export class LoaderInterceptor implements HttpInterceptor {
     if (request.method == 'GET') {
       this.loaderService.show();
     }
-
     return next.handle(request).pipe(finalize(() => this.loaderService.hide()));
   }
 }

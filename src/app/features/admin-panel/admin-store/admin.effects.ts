@@ -2,14 +2,16 @@ import { inject, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { SnackBar } from '@shared/snack-bar-added-to-db/snackBar.component';
-import { map, switchMap, tap } from 'rxjs';
+import { SnackbarService } from '@shared/snack-bar-added-to-db/snackBar.service';
+import { map, of, switchMap, tap } from 'rxjs';
+
 import { AdminPanelService } from '../admin-panel.service';
 import { RepertoirActions, ShowActions } from './admin.actions';
 @Injectable()
 export class RepertoirEffects {
   private actions$ = inject(Actions);
   private adminPanelService = inject(AdminPanelService);
-  // private snackBar = inject(MatSnackBar);
+  private snackBar = inject(MatSnackBar);
 
   films$ = createEffect(() =>
     this.actions$.pipe(
@@ -44,6 +46,11 @@ export class RepertoirEffects {
         return this.adminPanelService.addFilm(result.movie).pipe(
           map(movie => {
             return RepertoirActions.addnewmoviestate();
+          }),
+          tap(val => {
+            this.snackBar.openFromComponent(SnackBar, {
+              duration: 5 * 1000,
+            });
           })
         );
       })
@@ -55,8 +62,13 @@ export class RepertoirEffects {
       ofType(ShowActions.postshow),
       switchMap(result => {
         return this.adminPanelService.addShow(result.show).pipe(
-          map(movie => {
+          map(show => {
             return ShowActions.addnewshowstate();
+          }),
+          tap(val => {
+            this.snackBar.openFromComponent(SnackBar, {
+              duration: 5 * 1000,
+            });
           })
         );
       })

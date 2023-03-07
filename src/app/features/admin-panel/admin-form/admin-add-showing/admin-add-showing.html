@@ -42,6 +42,6 @@
       <!-- {{adminAddScreeningForm.controls.hour.errors | json}} {{adminAddScreeningForm.controls.hour.status}} -->
     </mat-form-field>
 
-    <button class="button" (click)="onCheckAvaible()">Dodaj</button>
+    <button class="button" type="submit" [disabled]="!adminAddScreeningForm.valid" (click)="addShow()">Dodaj</button>
   </form>
 </div>

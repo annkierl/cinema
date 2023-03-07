@@ -14,6 +14,7 @@ import { RepertoirEffects, ShowEffects } from './features/admin-panel/admin-stor
 import { AdminGuard } from './features/auth/guards/admin.guard';
 import { userReducer } from './features/auth/store/user.reducer';
 import { UserState } from './features/home/AppUser.interface';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 export interface AppState {
   User: UserState;
@@ -39,6 +40,7 @@ export interface AppState {
     StoreModule.forRoot({ Repertoir: Repertoir, User: userReducer }),
     EffectsModule.forRoot([RepertoirEffects, ShowEffects]),
     BrowserAnimationsModule,
+    MatSnackBarModule,
     RouterModule.forRoot([
       {
         path: '',

@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ErrorComponent } from '@shared/error/error.component';
 import { ErrorhandlerService } from '@shared/interceptor/error.service';
+import { LoaderInterceptor } from '@shared/interceptor/loader-interceptor.interceptor';
 import { LoaderComponent } from '@shared/loader/loader.component';
 import { ShowsService } from 'src/app/features/home/showing/Showings/film-lists/shows/shows.service';
 import { TicketsComponent } from 'src/app/features/tickets/tickets.component';

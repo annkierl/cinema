@@ -81,14 +81,13 @@ export default class AdminMovieListShowComponent {
     this.adminHelperService.insertdurationOfFilm(movieObj.movieLen);
   }
 
-  onCheckAvaible() {
+  addShow() {
     this.adminAddScreeningForm.markAllAsTouched();
+
     if (!this.adminAddScreeningForm.valid) {
       return;
     }
-    this.snackBar.openFromComponent(SnackBar, {
-      duration: 5 * 1000,
-    });
+
     let movieObj = JSON.parse(JSON.stringify(this.movieScreeningCtrl.value));
     let dayId = this.dayScreeningCtrl.value;
     let hallId = this.hallScreeningCtrl.value;

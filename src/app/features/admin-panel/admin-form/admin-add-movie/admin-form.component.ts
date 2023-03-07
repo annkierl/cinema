@@ -17,7 +17,6 @@ import { RepertoirState } from '../../admin.component';
 import { RepertoirActions } from '../../admin-store/admin.actions';
 import { NoSpaceDirective } from '@shared/no-space.directive';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-// import { SnackBar } from '@shared/SnackBarAddedToDB/snackBar.component';
 
 @Component({
   selector: 'app-admin-movielist-show',
@@ -81,9 +80,6 @@ export default class adminFormComponent {
       this.adminForm.markAllAsTouched();
       return;
     }
-    // this.snackBar.openFromComponent(SnackBar, {
-    //   duration: 5 * 1000,
-    // });
     const values = this.adminForm.getRawValue();
     let movie: Movie = {
       id: NaN,

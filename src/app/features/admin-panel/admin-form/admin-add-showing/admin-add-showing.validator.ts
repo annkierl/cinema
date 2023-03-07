@@ -8,7 +8,6 @@ import { AdminFilmHelperService } from 'src/app/features/admin-panel/admin-film.
   providedIn: 'root',
 })
 export class AdminValidator implements AsyncValidator {
-  // private store = inject<Store<RepertoirState>>(Store);
   private adminHelperService = inject(AdminFilmHelperService);
 
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
