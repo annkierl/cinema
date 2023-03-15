@@ -40,7 +40,7 @@ export class SingleMovieComponent {
     this.wantToWatchButton$ = this.wishList$.pipe(
       map(val => {
         const exist = val.some(element => {
-          return element.movieId === this.singleMovie.id;
+          return element.movieId === this.singleMovie.movieId;
         });
         if (exist) {
           return { wantoWatch: 'Usuń z listy' };

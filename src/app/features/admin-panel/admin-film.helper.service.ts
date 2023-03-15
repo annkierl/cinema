@@ -38,13 +38,16 @@ export class AdminFilmHelperService {
 
     return combineLatest([this.duarionOfFilm$, this.showswithFilms$]).pipe(
       map(([durationOfChoosenFilm, filmsInRoom]) => {
+        if (filmsInRoom.length === 0) {
+          generalResult = false;
+          return;
+        }
         let DurationOfChosenFILM = Number(durationOfChoosenFilm.durationOfFilm);
         let addToH = Math.round(DurationOfChosenFILM / 60);
         let InputFilmWillEnd = letInputTimeStartHOUR + addToH;
         let EndOfFilm = InputFilmWillEnd.toString() + ':' + letInputTimeStartMIN.toString();
         let InputTimeEnd = new Date('1970-01-01T' + EndOfFilm);
-
-        filmsInRoom.forEach(element => {
+        filmsInRoom.every(element => {
           let startHourEXISTINGFILM = new Date('1970-01-01T' + element.hour);
           let starthour = element.hour;
           let startTimeInArray = starthour.split(':');
@@ -55,10 +58,15 @@ export class AdminFilmHelperService {
           let resH = StartHour + addToH;
           let end = resH.toString() + ':' + Startminutes.toString();
           let endHouurEXISTINFGILM = new Date('1970-01-01T' + end);
-          if (!(InputTimeEnd < startHourEXISTINGFILM || endHouurEXISTINFGILM < InputTimeStart)) {
-            generalResult = true;
-          } else {
+          if (
+            (InputTimeStart < startHourEXISTINGFILM && InputTimeEnd < startHourEXISTINGFILM) ||
+            InputTimeStart > endHouurEXISTINFGILM
+          ) {
             generalResult = false;
+            return true;
+          } else {
+            generalResult = true;
+            return false;
           }
         });
         return generalResult;

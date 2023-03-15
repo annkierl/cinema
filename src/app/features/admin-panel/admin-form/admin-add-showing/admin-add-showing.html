@@ -14,7 +14,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Wybierz dzień</mat-label>
-      <mat-select formControlName="day">
+      <mat-select (selectionChange)="onSelectHall()" formControlName="day">
         <mat-option *ngFor=" let date of date; index as index" [value]="index"> {{date|date}}</mat-option>
       </mat-select>
       <mat-error *ngIf="dayScreeningCtrl.errors as errors">

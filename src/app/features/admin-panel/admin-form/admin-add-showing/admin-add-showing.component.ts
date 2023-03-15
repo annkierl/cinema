@@ -17,8 +17,7 @@ import { AdminMovieListService } from './admin-add-showing.service';
 import { AdminFilmHelperService } from 'src/app/features/admin-panel/admin-film.helper.service';
 import { prepairCalendar } from 'src/app/features/home/showing/Showings/calendar/calendar.helper';
 import { ShowingsService } from 'src/app/features/home/showing/Showings/showings.service';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { SnackBar } from '../../../../shared/snack-bar-added-to-db/snackBar.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-admin-add-showing',
@@ -50,10 +49,8 @@ export default class AdminMovieListShowComponent {
   private adminFormShowService = inject(AdminMovieListService);
   private adminHelperService = inject(AdminFilmHelperService);
   private showingService = inject(ShowingsService);
-  private snackBar = inject(MatSnackBar);
 
   errorClientServer$ = this.errorService.error$;
-  adminFormMovieList = this.adminFormShowService.getForm().controls.adminMovieList;
   adminAddScreeningForm = this.adminFormShowService.getFormAdmin();
   date = prepairCalendar();
 
@@ -79,8 +76,8 @@ export default class AdminMovieListShowComponent {
     this.adminHelperService.getShowsWithFilms(dayId, hallId);
     let movieObj = JSON.parse(JSON.stringify(this.movieScreeningCtrl.value));
     this.adminHelperService.insertdurationOfFilm(movieObj.movieLen);
+    this.adminAddScreeningForm.controls['hour'].reset();
   }
-
   addShow() {
     this.adminAddScreeningForm.markAllAsTouched();
 

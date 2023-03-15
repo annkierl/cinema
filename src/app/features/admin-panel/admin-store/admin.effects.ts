@@ -2,7 +2,6 @@ import { inject, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { SnackBar } from '@shared/snack-bar-added-to-db/snackBar.component';
-import { SnackbarService } from '@shared/snack-bar-added-to-db/snackBar.service';
 import { map, of, switchMap, tap } from 'rxjs';
 
 import { AdminPanelService } from '../admin-panel.service';
@@ -49,7 +48,7 @@ export class RepertoirEffects {
           }),
           tap(val => {
             this.snackBar.openFromComponent(SnackBar, {
-              duration: 5 * 1000,
+              duration: 5000,
             });
           })
         );
@@ -67,7 +66,7 @@ export class RepertoirEffects {
           }),
           tap(val => {
             this.snackBar.openFromComponent(SnackBar, {
-              duration: 5 * 1000,
+              duration: 5000,
             });
           })
         );

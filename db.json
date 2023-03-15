@@ -23,11 +23,6 @@
       "discount": 5
     },
     {
-      "id": 4,
-      "code": "555",
-      "discount": 5
-    },
-    {
       "id": 5,
       "code": "666",
       "discount": 5
@@ -50,11 +45,6 @@
   ],
   "wishList2": [
     {
-      "id": 1,
-      "movieId": 1,
-      "movieTitle": "Ghost in the shell"
-    },
-    {
       "id": 2,
       "movieId": 2,
       "movieTitle": "Avatar: Istota wody"
@@ -63,11 +53,15 @@
   "score": [
     {
       "id": 2,
-      "score": [8, 8, 8, 8, 9, 10, 4, 9]
+      "score": [8, 8, 8, 8]
+    },
+    {
+      "id": 3,
+      "score": [8, 8, 8, 8]
     },
     {
       "id": 1,
-      "score": [8, 8, 8, 8, 9, 10, 4, 9, 8]
+      "score": [8, 8, 8, 8]
     }
   ],
   "numberOfFilms": [
@@ -128,6 +122,46 @@
         }
       ],
       "id": 15
+    },
+    {
+      "userFirstName": "Wojtek",
+      "userLastName": "Kowalski",
+      "userEmail": "user@example.com",
+      "userPhoneNumber": "",
+      "movieTitle": "Avatar: Istota wody",
+      "hall": 1,
+      "hour": "19:00",
+      "dayId": "02/28/23",
+      "ticket": [
+        {
+          "row": 0,
+          "column": 4,
+          "colIndexPrintOnScreen": 7,
+          "type": "Ulgowy",
+          "value": 15
+        }
+      ],
+      "id": 16
+    },
+    {
+      "userFirstName": "Wojtek",
+      "userLastName": "Kowalski",
+      "userEmail": "user@example.com",
+      "userPhoneNumber": "",
+      "movieTitle": "Avatar: Istota wody",
+      "hall": 3,
+      "hour": "15:20",
+      "dayId": "03/02/23",
+      "ticket": [
+        {
+          "row": 6,
+          "column": 15,
+          "colIndexPrintOnScreen": 7,
+          "type": "Ulgowy",
+          "value": 15
+        }
+      ],
+      "id": 17
     }
   ],
   "blik": [
@@ -170,6 +204,14 @@
     {
       "code": 444444,
       "id": 9
+    },
+    {
+      "code": 333333,
+      "id": 10
+    },
+    {
+      "code": 566666,
+      "id": 11
     }
   ],
   "screens": [
@@ -249,7 +291,11 @@
         [1, 3],
         [0, 12],
         [0, 11],
-        [5, 3]
+        [5, 3],
+        [4, 12],
+        [6, 12],
+        [4, 4],
+        [7, 5]
       ],
       "priceList": [
         {
@@ -940,7 +986,10 @@
       "id": 21,
       "hour": "15:20",
       "screenId": 3,
-      "reservedSeats": [[7, 14]],
+      "reservedSeats": [
+        [7, 14],
+        [6, 15]
+      ],
       "priceList": [
         {
           "type": "Normalny",
@@ -1126,7 +1175,8 @@
       "hour": "19:00",
       "reservedSeats": [
         [2, 4],
-        [6, 12]
+        [6, 12],
+        [0, 4]
       ],
       "priceList": [
         {
@@ -1152,6 +1202,36 @@
         "colu": 10,
         "specialSeats": []
       }
+    },
+    {
+      "id": 25,
+      "screenId": 1,
+      "hour": "19:04",
+      "reservedSeats": [],
+      "priceList": [
+        {
+          "type": "Normalny",
+          "price": "30"
+        },
+        {
+          "type": "Ulgowy",
+          "price": "15"
+        },
+        {
+          "type": "Voucher",
+          "price": "20"
+        }
+      ],
+      "movieId": 3,
+      "dateId": 0,
+      "screenLayout": [],
+      "screen": {
+        "id": 1,
+        "name": "",
+        "rows": 10,
+        "colu": 10,
+        "specialSeats": []
+      }
     }
   ],
   "films": [
@@ -1166,79 +1246,89 @@
       "movieId": 2
     },
     {
-      "id": 1,
+      "id": 3,
       "dateId": 1,
       "movieId": 1
     },
     {
-      "id": 2,
+      "id": 4,
       "dateId": 2,
       "movieId": 2
     },
     {
-      "id": 1,
+      "id": 5,
       "dateId": 2,
       "movieId": 1
     },
     {
-      "id": 3,
+      "id": 6,
       "dateId": 2,
       "movieId": 3
     },
     {
-      "id": 1,
+      "id": 7,
       "dateId": 3,
       "movieId": 1
     },
     {
-      "id": 2,
+      "id": 8,
       "dateId": 3,
       "movieId": 2
     },
     {
-      "id": 3,
+      "id": 9,
       "dateId": 3,
       "movieId": 3
     },
     {
-      "id": 1,
+      "id": 10,
       "dateId": 4,
       "movieId": 1
     },
     {
-      "id": 3,
+      "id": 11,
       "dateId": 4,
       "movieId": 3
     },
     {
-      "id": 1,
+      "id": 12,
       "dateId": 5,
       "movieId": 1
     },
     {
-      "id": 1,
+      "id": 13,
       "dateId": 5,
       "movieId": 1
     },
     {
-      "id": 3,
+      "id": 14,
       "dateId": 5,
       "movieId": 3
     },
     {
-      "id": 1,
+      "id": 15,
       "dateId": 6,
       "movieId": 1
     },
     {
-      "id": 2,
+      "id": 16,
       "dateId": 6,
       "movieId": 2
     },
     {
-      "id": 3,
+      "id": 17,
       "dateId": 6,
       "movieId": 3
+    },
+    {
+      "id": 18,
+      "movieId": 1,
+      "dateId": 0
+    },
+    {
+      "id": 19,
+      "movieId": 3,
+      "dateId": 0
     }
   ],
   "movies": [
@@ -1272,7 +1362,7 @@
       "boxOff": 1000,
       "premiere": false,
       "addToFav": false,
-      "canBeJudged": false
+      "canBeJudged": true
     },
     {
       "id": 3,
@@ -1287,6 +1377,22 @@
       "actors": ["Stephen Lang", "Zoe Saldana", "Sam Worthington", "Sigourney Weaver"],
       "boxOff": 1000,
       "premier": false,
+      "addToFav": false,
+      "canBeJudged": false
+    },
+    {
+      "id": 4,
+      "img": "33434",
+      "genre": "hottot",
+      "title": "2222",
+      "length": "233",
+      "descriptionShort": "444",
+      "descriptionLong": "4443rrt5",
+      "ageRest": "Pg-13",
+      "director": "Franek",
+      "actors": [],
+      "boxOff": "1",
+      "premiere": true,
       "addToFav": false,
       "canBeJudged": true
     }

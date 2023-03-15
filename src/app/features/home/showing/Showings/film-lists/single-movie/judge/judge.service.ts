@@ -1,11 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
-import { TokenService } from 'src/app/features/auth/token/token.service';
 import { ShowingsService } from '../../../showings.service';
 import { initialStateJudge, Judge } from './judge-interface';
-import { JudgeComponent } from './judge.component';
 
 @Injectable({
   providedIn: 'root',

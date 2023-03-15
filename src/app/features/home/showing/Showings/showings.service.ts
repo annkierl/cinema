@@ -3,7 +3,6 @@ import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Film, Score, Shows } from './interfaces';
 import { initialFilms } from './film-lists/itinital-state';
-import { ShowsService } from './film-lists/shows/shows.service';
 
 @Injectable({
   providedIn: 'root',
@@ -47,7 +46,7 @@ export class ShowingsService {
   }
 
   postFilms(movieId: number, dayId: number) {
-    this.http.post(`http://localhost:3000/films`, { id: movieId, movieId: movieId, dateId: dayId }).subscribe();
+    this.http.post(`http://localhost:3000/films`, { id: NaN, movieId: movieId, dateId: dayId }).subscribe();
   }
 
   checkFilmsForAnotherDays(id: string) {

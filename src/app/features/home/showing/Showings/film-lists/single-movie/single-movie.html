@@ -18,24 +18,24 @@
     </div>
     <div class="interaction">
       <div *ngFor=" let score of scores">
-        <div *ngIf="score.id===singleMovie.id">Ocena: {{score.score| avrageOfArray|json}}/10</div>
+        <div *ngIf="score.id===singleMovie.movieId">Ocena: {{score.score| avrageOfArray|json}}/10</div>
       </div>
       <div *ngIf=" wantToWatchButton$|async as wantToWatchToggle">
         <button
           class="button"
           mat-raised-button
-          (click)="toggleWantToWatch(singleMovie.id, singleMovie.movie.title, wantToWatchToggle. wantoWatch)">
+          (click)="toggleWantToWatch(singleMovie.movieId, singleMovie.movie.title, wantToWatchToggle. wantoWatch)">
           {{wantToWatchToggle.wantoWatch}}
         </button>
       </div>
       <div *ngIf="singleMovie.movie.canBeJudged">
-        <button class="judge" mat-raised-button (click)="openDialog('0ms', '0ms', judge.movieId, singleMovie.id)">
+        <button class="judge" mat-raised-button (click)="openDialog('0ms', '0ms', judge.movieId, singleMovie.movieId)">
           Oceń film
         </button>
       </div>
     </div>
   </div>
-  <app-shows [id]="singleMovie.id" [singleMovieProp]="[{title:singleMovie.movie.title }]"></app-shows>
+  <app-shows [id]="singleMovie.movieId" [singleMovieProp]="[{title:singleMovie.movie.title }]"></app-shows>
 
   <div class="description">
     <p>Opis:</p>
